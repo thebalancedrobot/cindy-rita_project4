@@ -1,0 +1,25 @@
+.wrapper {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+body {
+    background-color: $blue;
+    display: grid;
+    grid-template-rows: repeat(min-content, 1fr);
+    height: 100vh;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
