@@ -1,32 +1,4 @@
-main {
-    width: 90vw;
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
-}
 
-.dot {
-    background-color: $yellow;
-    width: 1.5vw;
-    height: 1.5vw;
-    border: 3px solid black;
-    border-radius: 50%;
-    position: fixed;
-    z-index: 10;
-    &__1 {
-        top: 35vh;
-        left: 30vw;
-        }
-    &__2 {
-        top: 35vh;
-        left: 50vw; 
-        }
-    &__3 {
-        top: 66vh;
-        left: 50vw; 
-        }
-    &__4 {
-        top: 24vh;
-        left: 80vw; 
-        }
+.flagImage {
+        border: 1px solid blue;
 }

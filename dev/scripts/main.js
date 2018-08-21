@@ -12,7 +12,7 @@
 // 4. STRETCH GOALS
     // provide buttons linking to Book List and Packing List
    
-// app = {};
+const app = {};
 
 // googleplaces key - AIzaSyCe9KDkxpAabzdXv-o7xZig-oERuCroQyM
 
@@ -24,13 +24,32 @@ $.ajax({
     dataType: 'json'
 }).then((res) => {
     console.log(res);
-    const countryName = res[0].name;
-    const countryCurrencyName = res[0].currencies[0].name;
-    const countryCurrencySymbol = res[0].currencies[0].symbol;
-    const countryCapital = res[0].capital;
-    const countryLanguage = res[0].languages[0].name;
-    console.log(countryName, countryCurrencyName, countryCurrencySymbol, countryCapital, countryLanguage);
+    app.countryName = res[0].name;
+    app.countryFlag = res[0].flag;
+    app.countryCurrencyName = res[0].currencies[0].name;
+    app.countryCurrencySymbol = res[0].currencies[0].symbol;
+    app.countryCapital = res[0].capital;
+    app.countryLanguage = res[0].languages[0].name;
+    console.log(app.countryFlag);
+    $('.info h1').text(`${app.countryName}`);
+    $('.info h2').text(`${app.countryCapital}`);
+    $('.flag').attr("src", `${app.countryFlag}`);
+    $('.info ul').append($('<li>').append(`${app.countryCurrencySymbol}, ${app.countryCurrencyName}`));
+    $('.info ul').append($('<li>').append(`${app.countryLanguage}`)); // figure out how to list all languages
+
+
+
 })
+
+
+// const lightbox = $('<div>').addClass('lightbox');
+// const countryName = $('<h1>').text(countryName);
+// const capCity = $('<h2>').text(capitalCity);
+// const currencyText = $('<p>').text(`${countryCurrencyName} ${countryCurrencySymbol}`);
+// lightbox.append(countryName, capCity, currencyText);
+// // then finally append that to the art
+// $('.info').append(lightbox);
+
 
 // const apiURL = 'https://restcountries.eu/rest/v2/name/';
 
