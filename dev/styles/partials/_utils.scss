@@ -3,13 +3,13 @@ $blue: #39a9bd;
 $darkgrey: #414344;
 $lightgrey: #9fa1a3;
 
-body {
-    background-color: $blue;
-    display: grid;
-    grid-template-rows: repeat(min-content, 1fr);
-    height: 100vh;
-}
+$heading-font: "Carrois Gothic", sans-serif;
+$main-font: "Quicksand", sans-serif;
 
-img {
-    width: 100%;
-}
+// @mixin heading-text($font-size, $color: #fff) {
+//     font-size: $font-size;
+//     font-family: $heading-font;
+//     font-weight: 600;
+//     text-transform: uppercase;
+//     color: $color;
+// }
