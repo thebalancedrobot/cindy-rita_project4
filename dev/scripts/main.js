@@ -1,10 +1,3 @@
-// TIXIK
-// Your TIXIK.com API key:
-// 20180821635633064733153
-
-// Activation may take up to 3 working days.Then you can start using our API with call like this :
-// http://api.tixik.com/api/nearby?lang=en&lat=36.106121163930377&lng=28.07762145996093&limit=10&key=20180821635633064733153
-
 // PSEUDOCODE
 
 // 1. Figure out 10 different cities as potential vacation spots
@@ -19,8 +12,37 @@
 // 4. STRETCH GOALS
     // provide buttons linking to Book List and Packing List
    
-nextTripApp = {};
+// app = {};
 
-$(function(){
-    console.log('ready!')
-});
+// googleplaces key - AIzaSyCe9KDkxpAabzdXv-o7xZig-oERuCroQyM
+
+const country = 'canada';
+
+$.ajax({
+    url: `https://restcountries.eu/rest/v2/name/${country}`,
+    method: 'GET',
+    dataType: 'json'
+}).then((res) => {
+    console.log(res);
+    const countryName = res[0].name;
+    const countryCurrencyName = res[0].currencies[0].name;
+    const countryCurrencySymbol = res[0].currencies[0].symbol;
+    const countryCapital = res[0].capital;
+    // const countryLanguage = for(let in res[0];
+    console.log(countryName, countryCurrencyName, countryCurrencySymbol, countryCapital);
+    
+})
+
+// const apiURL = 'https://restcountries.eu/rest/v2/name/';
+
+// function getCountryInfo(name) {
+//     return $.ajax({
+//         url: `${apiURL}${name}`,
+//         method: 'GET',
+//         dataType: 'json'
+//     })
+// };
+
+// $(function(){
+//     console.log(getCountryInfo('canada'));
+// });
