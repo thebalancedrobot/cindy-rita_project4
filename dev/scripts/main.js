@@ -30,7 +30,6 @@ $.ajax({
     const countryCapital = res[0].capital;
     // const countryLanguage = for(let in res[0];
     console.log(countryName, countryCurrencyName, countryCurrencySymbol, countryCapital);
-    
 })
 
 // const apiURL = 'https://restcountries.eu/rest/v2/name/';
