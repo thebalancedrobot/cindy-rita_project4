@@ -28,8 +28,8 @@ $.ajax({
     const countryCurrencyName = res[0].currencies[0].name;
     const countryCurrencySymbol = res[0].currencies[0].symbol;
     const countryCapital = res[0].capital;
-    // const countryLanguage = for(let in res[0];
-    console.log(countryName, countryCurrencyName, countryCurrencySymbol, countryCapital);
+    const countryLanguage = res[0].languages[0].name;
+    console.log(countryName, countryCurrencyName, countryCurrencySymbol, countryCapital, countryLanguage);
 })
 
 // const apiURL = 'https://restcountries.eu/rest/v2/name/';
