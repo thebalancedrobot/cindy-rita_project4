@@ -12,40 +12,112 @@
 // 4. STRETCH GOALS
     // provide buttons linking to Book List and Packing List
    
-const app = {};
 
 // googleplaces key - AIzaSyCe9KDkxpAabzdXv-o7xZig-oERuCroQyM
-
+const app = {};
 const country = 'canada';
+const countryUrl = `https://restcountries.eu/rest/v2/name/${country}`;
+const weatherURL = `api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=AIzaSyCe9KDkxpAabzdXv-o7xZig-oERuCroQyM&units=metric`;
 
-$.ajax({
-    url: `https://restcountries.eu/rest/v2/name/${country}`,
-    method: 'GET',
-    dataType: 'json'
-}).then((res) => {
-    console.log(res);
-    app.countryName = res[0].name;
-    app.countryFlag = res[0].flag;
-    app.countryCurrencyName = res[0].currencies[0].name;
-    app.countryCurrencySymbol = res[0].currencies[0].symbol;
-    app.countryCapital = res[0].capital;
-    app.countryLanguage = res[0].languages[0].name;
-    console.log(app.countryFlag);
-    $('.info h1').text(`${app.countryName}`);
-    $('.info h2').text(`${app.countryCapital}`);
-    $('.flag').attr("src", `${app.countryFlag}`);
-    $('.info ul').append($('<li>').append(`${app.countryCurrencySymbol}, ${app.countryCurrencyName}`));
-    $('.info ul').append($('<li>').append(`${app.countryLanguage}`)); // figure out how to list all languages
+// $.ajax({
+//     url: "http://api.openweathermap.org/data/2.5/weather",
+//     type: "GET",
+//     dataType: "JSON",
+//     data: {
+//         city: 'toronto'
+//     },
+//     success: function (data) {
+//         console.log(data);
+//     },
+//     error: function (data, textStatus, errorThrown) {
+//         //Do Something to handle error
+//         console.log(textStatus);
+//     }
+// });
+        
+
+// $.ajax({
+//     type: 'GET',
+//     url: "https://maps.googleapis.com/maps/api/place/search/json",
+//     dataType: "json",
+//     data: {
+//         key: 'AIzaSyCe9KDkxpAabzdXv-o7xZig-oERuCroQyM', 
+//         sensor: "false" 
+//     }
+//     .then((res2) => {
+//         console.log(res2);
+//     })
+// });
 
 
 
-})
+
+app.getCountryInfo = () => {
+    $.ajax({
+        url: countryUrl,
+        dataType: 'json',
+        method: 'GET',
+    })
+    .then((res) => {
+        console.log(res[0]);
+        app.displayCountry(res[0]);
+        // $.ajax({
+        //     url: weatherURL,
+        //     dataType: 'json',
+        //     method: 'GET'
+        // })
+        // .then((res2) => {
+        //     console.log(res2)
+        // })
+    })
+}
+
+app.displayCountry = (country) => {
+    // app.countryName = country.name;
+    app.countryFlag = country.flag;
+    app.countryCurrencyName = country.currencies[0].name;
+    app.countryCurrencySymbol = country.currencies[0].symbol;
+    app.countryCapital = country.capital;
+    for (let key in country.languages) {
+        app.languages = country.languages[key].name;
+        $('.info p').append(app.languages);
+        console.log(app.languages);
+        }
+    // app.countryLanguage();
+    $('.info h1').text(country.name);
+    $('.info h2').text(country.capital);
+    $('.flagImage img').attr("src", country.flag);
+    $('.info ul').append($('<li>').append(`${country.currencies[0].name} &  ${country.currencies[0].symbol}`));
+    // console.log(app.languages)
+
+}
+
+app.init = function() {
+    app.getCountryInfo();
+}
+
+$(function () {
+    app.init();
+});
 
 
-// const lightbox = $('<div>').addClass('lightbox');
-// const countryName = $('<h1>').text(countryName);
-// const capCity = $('<h2>').text(capitalCity);
-// const currencyText = $('<p>').text(`${countryCurrencyName} ${countryCurrencySymbol}`);
+// $.ajax({
+//     url: `https://restcountries.eu/rest/v2/name/${country}`,
+//     method: 'GET',
+//     dataType: 'json'
+// }).then((res) => {
+//     console.log(res);
+    
+
+//     $('.info ul').append($('<li>').append(`${app.countryCurrencySymbol}, ${app.countryCurrencyName}`));
+//     $('.info ul').append($('<li>').append(`${app.countryLanguage}`)); // figure out how to list all languages
+
+
+
+// })
+
+
+
 // lightbox.append(countryName, capCity, currencyText);
 // // then finally append that to the art
 // $('.info').append(lightbox);
