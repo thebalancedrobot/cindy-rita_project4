@@ -6,48 +6,30 @@
     // disable default
     // randomly pick object from array
         // put animation in to randomly reveal and hide dots on the map
-    // use Travel API to populate the info we want based on the city chosen
-    // display that information in our HTML
     // give an exit option on the info module that also resets the input
 // 4. STRETCH GOALS
     // provide buttons linking to Book List and Packing List
    
 
-// googleplaces key - AIzaSyCe9KDkxpAabzdXv-o7xZig-oERuCroQyM
+
+
 const app = {};
-const country = 'canada';
-const countryUrl = `https://restcountries.eu/rest/v2/name/${country}`;
+const countries = [
+    "Argentina",
+    "Costa Rica",
+    "France",
+    "Iceland",
+    "India",
+    "Mexico",
+    "Peru",
+    "South Africa",
+    "Thailand",
+    "Turkey"
+]
+const country = countries[Math.floor(Math.random() * countries.length)];
+const countryUrl = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
 const weatherURL = `api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=AIzaSyCe9KDkxpAabzdXv-o7xZig-oERuCroQyM&units=metric`;
 
-// $.ajax({
-//     url: "http://api.openweathermap.org/data/2.5/weather",
-//     type: "GET",
-//     dataType: "JSON",
-//     data: {
-//         city: 'toronto'
-//     },
-//     success: function (data) {
-//         console.log(data);
-//     },
-//     error: function (data, textStatus, errorThrown) {
-//         //Do Something to handle error
-//         console.log(textStatus);
-//     }
-// });
-        
-
-// $.ajax({
-//     type: 'GET',
-//     url: "https://maps.googleapis.com/maps/api/place/search/json",
-//     dataType: "json",
-//     data: {
-//         key: 'AIzaSyCe9KDkxpAabzdXv-o7xZig-oERuCroQyM', 
-//         sensor: "false" 
-//     }
-//     .then((res2) => {
-//         console.log(res2);
-//     })
-// });
 
 
 
@@ -59,41 +41,33 @@ app.getCountryInfo = () => {
         method: 'GET',
     })
     .then((res) => {
-        console.log(res[0]);
+        // console.log(res[0]);
         app.displayCountry(res[0]);
-        // $.ajax({
-        //     url: weatherURL,
-        //     dataType: 'json',
-        //     method: 'GET'
-        // })
-        // .then((res2) => {
-        //     console.log(res2)
-        // })
     })
 }
 
+app.events = () => {
+    $('.getCountry').on('submit', function(){
+        app.getCountryInfo();
+    })
+    
+}
+
 app.displayCountry = (country) => {
-    // app.countryName = country.name;
-    app.countryFlag = country.flag;
-    app.countryCurrencyName = country.currencies[0].name;
-    app.countryCurrencySymbol = country.currencies[0].symbol;
-    app.countryCapital = country.capital;
-    for (let key in country.languages) {
-        app.languages = country.languages[key].name;
-        $('.info p').append(app.languages);
-        console.log(app.languages);
-        }
     // app.countryLanguage();
     $('.info h1').text(country.name);
     $('.info h2').text(country.capital);
     $('.flagImage img').attr("src", country.flag);
     $('.info ul').append($('<li>').append(`${country.currencies[0].name} &  ${country.currencies[0].symbol}`));
-    // console.log(app.languages)
+    for (let key in country.languages) {
+        app.languages = country.languages[key].name;
+        $('.info p').append(app.languages);
+    }
+
 
 }
 
 app.init = function() {
-    app.getCountryInfo();
 }
 
 $(function () {
