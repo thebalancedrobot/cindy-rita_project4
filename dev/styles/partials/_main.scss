@@ -1,4 +1,23 @@
+main {
+    display: none;
+}
 
-.flagImage {
-        border: 1px solid blue;
+img {
+    width: 100%;
+}
+
+.info {
+    display: flex;
+    width: 80vw;
+    .text {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .flagImage {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        margin-left: 2rem;
+    }   
 }

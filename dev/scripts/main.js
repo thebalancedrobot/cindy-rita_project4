@@ -11,8 +11,6 @@
     // provide buttons linking to Book List and Packing List
    
 
-
-
 const app = {};
 const countries = [
     "Argentina",
@@ -26,48 +24,77 @@ const countries = [
     "Thailand",
     "Turkey"
 ]
-const country = countries[Math.floor(Math.random() * countries.length)];
-const countryUrl = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
-const weatherURL = `api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=AIzaSyCe9KDkxpAabzdXv-o7xZig-oERuCroQyM&units=metric`;
-
-
-
-
 
 app.getCountryInfo = () => {
+    const country = countries[Math.floor(Math.random() * countries.length)];
+    const countryUrl = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
     $.ajax({
         url: countryUrl,
         dataType: 'json',
         method: 'GET',
     })
     .then((res) => {
-        // console.log(res[0]);
         app.displayCountry(res[0]);
+        app.getWeatherData = () => {
+            $.ajax({
+                url: `https://api.darksky.net/forecast/93932fce8bfc18bf1b4f29a5f1695173/${app.lat},${app.long}`,
+                dataType: 'jsonp',
+                method: 'GET'
+            })
+                .then((res2) => {
+                    app.displayWeather(res2);
+                })
+        }
+        app.getWeatherData();
     })
 }
 
 app.events = () => {
-    $('.getCountry').on('submit', function(){
-        app.getCountryInfo();
+    $('form').on('submit', function (e) {
+        $('form').trigger("reset");
+            e.preventDefault();
+            console.log('clicked');
+            app.getCountryInfo();
     })
-    
 }
 
 app.displayCountry = (country) => {
-    // app.countryLanguage();
-    $('.info h1').text(country.name);
-    $('.info h2').text(country.capital);
+    app.long = country.latlng[1]
+    app.lat = country.latlng[0];
+    console.log(app.long, app.lat);
+    $('.info h2').html(`${country.capital}, ${country.name}`);
     $('.flagImage img').attr("src", country.flag);
-    $('.info ul').append($('<li>').append(`${country.currencies[0].name} &  ${country.currencies[0].symbol}`));
+    $('.info ul').html($('<li>').html(`Currency: ${country.currencies[0].name}`));
     for (let key in country.languages) {
-        app.languages = country.languages[key].name;
-        $('.info p').append(app.languages);
+        const languageString = country.languages[key].name.concat();
+        console.log(languageString);
+        $('.info p').html(`Languages spoken: ${languageString}`);
     }
-
-
 }
 
+app.displayWeather = (weather) => {
+    $('p').html(`Weather: ${weather.daily.summary}`)
+}
+
+
+
+
+// app.getCountryInfo = () => {
+//     $.ajax({
+//         url: countryUrl,
+//         dataType: 'json',
+//         method: 'GET',
+//     })
+//         .then((res) => {
+//             app.displayCountry(res[0]);
+//         })
+// }
+
+
+
+
 app.init = function() {
+    app.events();
 }
 
 $(function () {
