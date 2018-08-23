@@ -28,4 +28,16 @@ form input[type="submit"] {
   font-size: 2rem;
   background-color: $yellow;
   padding: 1rem 2rem;
+  transition: 0.2s;
+  color: $darkgrey;
+  border-radius: 3%;
+  &:hover {
+    background-color: darken($yellow, 10%);
+  }
+}
+
+
+
+em {
+  font-weight: bold;
 }
