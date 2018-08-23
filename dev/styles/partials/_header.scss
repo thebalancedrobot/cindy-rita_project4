@@ -1,9 +1,14 @@
 header {
-    display: flex;
-    background: white;
-    height: 20vh;
-    justify-content: center;
+    height: 10vh;
     align-items: center;
+    display: flex;
+    .wrapper {
+        display: flex;
+        background: white;
+        width: 90vw;
+        height: 100%;
+        align-items: center;
+    }
     figure {
         width: 70px;
         padding: 0 10rem;

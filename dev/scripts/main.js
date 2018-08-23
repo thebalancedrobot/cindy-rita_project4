@@ -12,9 +12,17 @@ const countries = [
     "Thailand",
     "Turkey"]
 
+app.changeImage = () => {
+    const country = countries[Math.floor(Math.random() * countries.length)];
+    const countryUrl = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
+    $('main').css('background', `#fff url(../../images/${country}.jpg) top/contain no-repeat`);
+}
+
 app.getCountryInfo = () => {
     const country = countries[Math.floor(Math.random() * countries.length)];
     const countryUrl = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
+    $('main').css('background', `#fff url(../../images/${country}.jpg) top/contain no-repeat`);
+
     $.ajax({
         url: countryUrl,
         dataType: 'json',
@@ -41,12 +49,13 @@ app.getCountryInfo = () => {
                 data: {
                     'level': 'poi',
                     'location': `${app.lat},${app.long}`,
-                    'categories': 'sightseeing',
+                    'categories': "sightseeing",
                     'limit': '3'
                 }
             })
             .then((res3) => {
                 app.displayAttraction(res3.data.places);
+                console.log(res3);
                 // console.log(res3.data.places[0]);
             })
         })
@@ -70,7 +79,7 @@ app.displayCountry = (country) => {
     const currencyText = country.currencies[0].name.toLowerCase();
     $('.info h2').html(`${country.capital}, ${country.name}`);
     $('.info figure img').attr("src", country.flag);
-    $('.thirdSection p').html(`<em>time to exchange</em> <br>your canadian dollars for ${currencyText}`)
+    $('.currency p').html(`<em>time to exchange</em> <br>your canadian dollars for ${currencyText}`)
     $('.moreInfo .findFlights').html(`<div data-skyscanner-widget="LocationWidget" data-locale="en-GB" data-params="colour:#f4d35e;location:${country.capital};locationId:EDI"></div>
     <script src="https://widgets.skyscanner.net/widget-server/js/loader.js"></script>`);
 
@@ -81,6 +90,8 @@ app.displayCountry = (country) => {
         const languagesString = languages.join(', ').toLowerCase();
         $('.moreInfo ul').html(`<li><em>learn some words in</em><br> ${languagesString}</li>`)
     }
+
+    app.displayAttraction();
 };
 
 app.displayAttraction = (attraction) => {

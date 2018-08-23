@@ -152,6 +152,10 @@ body {
   background-color: white;
   grid-template-rows: repeat(min-content, 1fr); }
 
+img {
+  max-width: 100%;
+  display: block; }
+
 a {
   text-decoration: none; }
 
@@ -165,11 +169,14 @@ form input[type="submit"] {
   background-color: #f4d35e;
   padding: 1rem 2rem; }
 
+em {
+  font-weight: bold; }
+
 html {
   font-size: 62.5%; }
 
 body {
-  font-family: "IBM+Plex+Sans+Condensed", sans-serif;
+  font-family: "Kosugi", sans-serif;
   font-size: 2rem;
   line-height: 2.5rem; }
 
@@ -186,38 +193,39 @@ h1, h2 {
   margin: 0; }
 
 header {
-  display: flex;
-  background: white;
-  height: 20vh;
-  justify-content: center;
-  align-items: center; }
+  height: 10vh;
+  align-items: center;
+  display: flex; }
+  header .wrapper {
+    display: flex;
+    background: white;
+    width: 90vw;
+    height: 100%;
+    align-items: center; }
   header figure {
     width: 70px;
     padding: 0 10rem;
     margin-right: 300px; }
 
 main {
-  display: none; }
-
-img {
-  width: 100%; }
+  background: #fff url(../../images/world.jpg) top/contain no-repeat;
+  overflow: hidden;
+  min-height: 90vh; }
 
 .info {
-  width: 70vw;
+  width: 90vw;
   display: none;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-top: 0.5rem; }
   .info .countryName {
     justify-content: center;
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column; }
+    background-color: white;
+    display: inline-block;
+    padding: 1.5rem; }
   .info figure {
     border: 1px solid #414344;
     width: 20%;
     margin: 3rem 0; }
-  .info img {
-    opacity: 0.6;
-    display: block; }
 
 .extraInfo {
   display: none;
@@ -229,8 +237,8 @@ img {
   bottom: 0; }
 
 .moreInfo,
-.packingList,
-.thirdSection {
+.attractions,
+.currency {
   width: 25%;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 3rem; }
