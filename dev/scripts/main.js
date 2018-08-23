@@ -85,7 +85,7 @@ app.displayCountry = (country) => {
 
     const languages = [];
     for (let key in country.languages) {
-        const language = country.languages[key].name;
+        const language = country.languages[key].name;    
         languages.push(language);
         const languagesString = languages.join(', ').toLowerCase();
         $('.moreInfo ul').html(`<li><em>learn some words in</em><br> ${languagesString}</li>`)

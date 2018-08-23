@@ -167,7 +167,12 @@ form input[type="submit"] {
   border: 0;
   font-size: 2rem;
   background-color: #f4d35e;
-  padding: 1rem 2rem; }
+  padding: 1rem 2rem;
+  transition: 0.2s;
+  color: #414344;
+  border-radius: 3%; }
+  form input[type="submit"]:hover {
+    background-color: #f1c62e; }
 
 em {
   font-weight: bold; }
@@ -213,18 +218,17 @@ main {
   min-height: 90vh; }
 
 .info {
-  width: 90vw;
+  width: 60vw;
   display: none;
   margin: 0 auto;
   padding-top: 0.5rem; }
   .info .countryName {
-    justify-content: center;
     background-color: white;
     display: inline-block;
     padding: 1.5rem; }
   .info figure {
     border: 1px solid #414344;
-    width: 20%;
+    width: 25%;
     margin: 3rem 0; }
 
 .extraInfo {
@@ -240,5 +244,6 @@ main {
 .attractions,
 .currency {
   width: 25%;
+  border: 1px solid #f4d35e;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 3rem; }
