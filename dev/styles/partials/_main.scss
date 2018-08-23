@@ -1,11 +1,6 @@
 main {
-    background: #fff url(../../../images/world.jpg) center/cover no-repeat;
+    background: #fff url(../../images/world.jpg) center/contain no-repeat;
     min-height: 100vh;
-    display: none;
-}
-
-img {
-    width: 100%;
 }
 
 .info {
@@ -23,11 +18,9 @@ img {
         border: 1px solid $darkgrey;
         width: 20%;
         margin: 3rem 0;
-
     }  
     img {
         opacity: 0.6;
-        display: block;
     }
 }
 

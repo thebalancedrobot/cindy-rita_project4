@@ -9,6 +9,11 @@ body {
     grid-template-rows: repeat(min-content, 1fr);
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
 a {
   text-decoration: none;
 }
