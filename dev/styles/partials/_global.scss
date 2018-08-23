@@ -4,10 +4,9 @@
 }
 
 body {
-    background-color: $blue;
     display: grid;
+    background-color: white;
     grid-template-rows: repeat(min-content, 1fr);
-    height: 100vh;
 }
 
 a {
@@ -17,4 +16,11 @@ a {
 ul {
   list-style: none;
   padding: 0;
+}
+
+form input[type="submit"] {
+  border: 0;
+  font-size: 2rem;
+  background-color: $yellow;
+  padding: 1rem 2rem;
 }
