@@ -53,7 +53,8 @@ app.events = () => {
     $('form').on('submit', function (e) {
         $('form').trigger("reset");
             e.preventDefault();
-            console.log('clicked');
+            $('.info').css('display', 'block');
+            $('.extraInfo').css('display', 'flex');
             app.getCountryInfo();
     })
 }
@@ -61,37 +62,35 @@ app.events = () => {
 app.displayCountry = (country) => {
     app.long = country.latlng[1]
     app.lat = country.latlng[0];
-    console.log(app.long, app.lat);
+    const currencyText = country.currencies[0].name.toLowerCase();
     $('.info h2').html(`${country.capital}, ${country.name}`);
-    $('.flagImage img').attr("src", country.flag);
-    $('.info ul').html($('<li>').html(`Currency: ${country.currencies[0].name}`));
+    $('.info figure img').attr("src", country.flag);
+    $('.thirdSection p').html(`<em>time to exchange</em> <br>your canadian dollars for ${currencyText}`)
+    $('.moreInfo .findFlights').html(`<div data-skyscanner-widget="LocationWidget" data-locale="en-GB" data-params="colour:#f4d35e;location:${country.capital};locationId:EDI"></div>
+    <script src="https://widgets.skyscanner.net/widget-server/js/loader.js"></script>`);
+    $('.moreInfo .thirdSection').append(`<div id="xecurrencywidget"></div>
+    <script>var xeCurrencyWidget = {"domain":"www.test.com","language":"en","size":"normal"};</script>
+    <script src="https://www.xe.com/syndication/currencyconverterwidget.js"></script>`)
+
+    const languages = [];
     for (let key in country.languages) {
-        const languageString = country.languages[key].name.concat();
-        console.log(languageString);
-        $('.info p').html(`Languages spoken: ${languageString}`);
+        const language = country.languages[key].name;
+        languages.push(language);
+        console.log(languages);
+        const languagesString = languages.join(', ').toLowerCase();
+        $('.moreInfo ul').html(`<li><em>learn some words in</em><br> ${languagesString}</li>`)
     }
-}
+
+        // languages.forEach((language) => {
+        //     console.log(`learn some words in: ${language} `)
+        // })
+       
+};
 
 app.displayWeather = (weather) => {
-    $('p').html(`Weather: ${weather.daily.summary}`)
+    const weatherString = weather.daily.summary.toLowerCase();
+    $('.moreInfo ul').append(`<br><li><em>weather this week</em><br> ${weatherString}</li>`)
 }
-
-
-
-
-// app.getCountryInfo = () => {
-//     $.ajax({
-//         url: countryUrl,
-//         dataType: 'json',
-//         method: 'GET',
-//     })
-//         .then((res) => {
-//             app.displayCountry(res[0]);
-//         })
-// }
-
-
-
 
 app.init = function() {
     app.events();
