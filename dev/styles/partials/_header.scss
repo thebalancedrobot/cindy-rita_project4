@@ -1,15 +1,12 @@
 header {
     height: 10vh;
-    align-items: center;
+    padding: 25px 50px;
+    border-bottom: 1px solid $blue;
     display: flex;
-    .wrapper {
-        display: flex;
-        background: white;
-        width: 90vw;
-        height: 100%;
-        align-items: center;
-    }
+    justify-content: space-between;
+    align-items: center;
     figure {
+        display: none;
         width: 70px;
         padding: 0 10rem;
         margin-right: 300px;

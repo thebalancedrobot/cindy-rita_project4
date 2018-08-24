@@ -4,21 +4,45 @@ html {
 
 body {
     font-family: $main-font;
-    font-size: 2rem;
-    line-height: 2.5rem;
+    font-size: 1.8rem;
+    letter-spacing: .5px;
+    color: $darkgrey;
 }
 
-h1,h2 {
-  font-family: $heading-font;
-  color: $darkgrey;
-  text-transform: uppercase;
-  display: inline-block;
-  font-weight: 800;
-  letter-spacing: 7px;
-  font-weight: 700;
-  font-size: 4.5rem;
-  font-weight: 600;
-  margin: 0;
+h1, h2, h3 {
+    margin: 0;
 }
 
+h1 {
+    font-family: $main-font;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
+h2, h3 {
+    font-family: $heading-font;
+    position: absolute;
+}
+
+h2 {
+    font-size: 8rem;
+    top: 30%;
+    left: 21%;
+    letter-spacing: 7px;
+}
+
+h3 {
+    font-size: 5rem;
+    top: 40%;
+    left: 21.5%;
+    text-transform: lowercase;
+}
+
+h4 {
+    font-weight: normal;
+}
+
+em {
+    font-weight: bold;
+}
