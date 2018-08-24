@@ -107,8 +107,8 @@ app.getCountryInfo = () => {
 }
     
 app.events = () => {
-    $('form').on('submit', function (e) {
-        $('form').trigger("reset");
+    $('.pickCountry').on('submit', function (e) {
+        $('.pickCountry').trigger("reset");
             e.preventDefault();
             $('.grid__itemTitle').css('display', 'block');
         $('.gridPicture__container').addClass('gridPicture__container--active');
@@ -159,10 +159,6 @@ app.displayAttraction = (attraction) => {
 app.displayWeather = (weather) => {
     const weatherString = weather.daily.summary.toLowerCase();
     $('.grid__content--weather').html(`<em>weather this week</em><br> ${weatherString}`)
-}
-
-app.displayPackingList = function(){
-    $
 }
 
 app.init = function() {
