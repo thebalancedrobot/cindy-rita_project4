@@ -177,6 +177,10 @@ app.displayWeather = (weather) => {
     $('.moreInfo ul').append(`<br><li><em>weather this week</em><br> ${weatherString}</li>`)
 }
 
+app.displayPackingList = function(){
+    $
+}
+
 app.init = function() {
     app.events();
 }
