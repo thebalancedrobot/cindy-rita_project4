@@ -230,6 +230,9 @@ main {
     border: 1px solid #414344;
     width: 25%;
     margin: 3rem 0; }
+  .info img {
+    opacity: 0.6; }
+
 
 .extraInfo {
   display: none;
