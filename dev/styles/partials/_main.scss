@@ -54,22 +54,16 @@ main {
 }
 
 .gridPicture__container--active {
-    background: red;
-    // &--info {
-    //     height: 40vh;
-    // }
-    // &--packing {
-    //     height: 25vh;
-    // }
-    // &--extraInfo {
-    //     height: 30vh;
-    // }
-    // &--currency {
-    //     height: 25vh;
-    // }
-    // &--weather {
-    //     height: 15vh;
-    // }
+    height: 25vh;
+    &--info {
+        height: 40vh;
+    }
+    &--extraInfo {
+        height: 30vh;
+    }
+    &--weather {
+        height: 15vh;
+    }
 }
 
 .grid__itemTitle {
@@ -78,7 +72,7 @@ main {
     right: -5rem;
     writing-mode: vertical-rl;
     white-space: nowrap;
-    // display: none;
+    display: none;
 }
 
 // - - - - - - - - - - - - - - - 

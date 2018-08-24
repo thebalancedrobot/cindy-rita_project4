@@ -275,14 +275,21 @@ main {
     height: 90vh; }
 
 .gridPicture__container--active {
-  background: red; }
+  height: 25vh; }
+  .gridPicture__container--active--info {
+    height: 40vh; }
+  .gridPicture__container--active--extraInfo {
+    height: 30vh; }
+  .gridPicture__container--active--weather {
+    height: 15vh; }
 
 .grid__itemTitle {
   position: absolute;
   top: -3rem;
   right: -5rem;
   writing-mode: vertical-rl;
-  white-space: nowrap; }
+  white-space: nowrap;
+  display: none; }
 
 .gridPicture__container.fullscreen {
   z-index: 9999;

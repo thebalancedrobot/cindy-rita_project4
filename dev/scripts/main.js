@@ -66,6 +66,8 @@ app.events = () => {
     $('form').on('submit', function (e) {
         $('form').trigger("reset");
             e.preventDefault();
+            $('.grid__itemTitle').css('display', 'block');
+        $('.gridPicture__container').addClass('gridPicture__container--active');
             app.getCountryInfo();
     });
 }
