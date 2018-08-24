@@ -23,9 +23,11 @@
     <!-- HEADER SECTION ENDS -->
     <!-- MAIN SECTION BEGINS -->
     <main class="mapBackground">
-        <h2 class="countryName"></h2>
         <h3 class="capitalCity"></h3>
-        <img src="" class="flag">
+        <h2 class="countryName"></h2>
+        <figure class="flagFigure">
+            <img src="" class="flag">
+        </figure>
         <div class="grid">
             <section class="grid__box grid__box--info">
                 <div class="grid__item">
@@ -33,7 +35,9 @@
                     <div class="gridPicture__container gridPicture__container--info">
                         <h4 class="grid__itemTitle">Information</h4>
                         <img class="gridPicture__image" src="" alt="">
-                        <div class="grid__content">
+                        <div class="grid__content grid__content--info">
+                            <span class="language"></span>
+                            <span class="attractions"></span>
                         </div>
                     </div>
                 </div>
@@ -55,6 +59,9 @@
                     <div class="gridPicture__container gridPicture__container--extraInfo">
                         <h4 class="grid__itemTitle">Find flights</h4>
                         <img class="gridPicture__image" src="" alt="">
+                        <div class="grid__content grid__content--flights">
+                        
+                        </div>
                     </div>
                 </div>
             </section>
@@ -65,6 +72,8 @@
                     <div class="gridPicture__container gridPicture__container--currency">
                         <h4 class="grid__itemTitle">Currency conversion</h4>
                         <img class="gridPicture__image" src="" alt="">
+                        <div class="grid__content grid__content--currency">
+                        </div>
                     </div>
                 </div>
             </section>
@@ -72,9 +81,11 @@
             <section class="grid__box grid__box--weather">
                 <div class="grid__item">
                     <span class="grid__itemNumber"><span>05</span></span>
-                    <div class="gridPicture__container gridPicture__container--weather">
-                        <!-- <h4 class="grid__itemTitle grid__itemTitle--weather">Weather</h4> -->
+                    <div class="gridPicture__container gridPicture__container--active--weather">
                         <img class="gridPicture__image" src="" alt="">
+                        <div class="grid__content grid__content--weather">
+                            
+                        </div>
                     </div>
                 </div>
             </section>
