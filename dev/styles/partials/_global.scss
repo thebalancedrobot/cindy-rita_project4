@@ -1,12 +1,14 @@
-.wrapper {
-  max-width: 1170px;
-  margin: 0 auto;
+// .wrapper {
+//   max-width: 1170px;
+//   margin: 0 auto;
+// }
+
+html {
+  height: 100%;
 }
 
 body {
-    display: grid;
-    background-color: white;
-    grid-template-rows: repeat(min-content, 1fr);
+  height: 100%;
 }
 
 img {
@@ -24,20 +26,18 @@ ul {
 }
 
 form input[type="submit"] {
-  border: 0;
+  border: 1px solid $yellow;
   font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
   background-color: $yellow;
   padding: 1rem 2rem;
-  transition: 0.2s;
+  transition: all 0.5s;
   color: $darkgrey;
   border-radius: 3%;
+  outline: none;
   &:hover {
-    background-color: darken($yellow, 10%);
+    background-color: #fff;
+    color: $yellow;
   }
-}
-
-
-
-em {
-  font-weight: bold;
 }

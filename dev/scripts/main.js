@@ -69,8 +69,15 @@ app.events = () => {
             $('.info').css('display', 'block');
             $('.extraInfo').css('display', 'flex');
             app.getCountryInfo();
-    })
+    });
+    
+    // this animates the lightbox for now
+    $('.gridPicture__container').click(function (e) {
+        $(this).toggleClass('fullscreen');
+    });
 }
+
+
 
 app.displayCountry = (country) => {
     app.long = country.latlng[1]
