@@ -220,13 +220,12 @@ header {
   padding: 25px 50px;
   border-bottom: 1px solid #39a9bd;
   display: flex;
-  justify-content: space-between;
   align-items: center; }
+  header .pickCountry {
+    position: absolute;
+    right: 2%; }
   header figure {
-    display: none;
-    width: 70px;
-    padding: 0 10rem;
-    margin-right: 300px; }
+    width: 70px; }
 
 main {
   background: #fff url(../../images/world.jpg) top/contain no-repeat;
