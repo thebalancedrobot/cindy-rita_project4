@@ -1,18 +1,5 @@
 const app = {};
 
-// const countries = [
-//     "Argentina",
-//     "Costa Rica",
-//     "France",
-//     "Iceland",
-//     "India",
-//     "Mexico",
-//     "Peru",
-//     "South Africa",
-//     "Thailand",
-//     "Turkey"
-// ]
-
 const countries = [
     {   
         country: "Argentina",
@@ -66,11 +53,6 @@ const countries = [
     }
 ]
 
-// app.changeImage = () => {
-//     const country = countries[Math.floor(Math.random() * countries.length)];
-//     const countryUrl = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
-//     $('main').css('background', `#fff url(../../images/${country}.jpg) top/contain no-repeat`);
-// }
 
 app.getCountryInfo = () => {
     const countryArray = [];
@@ -142,11 +124,13 @@ app.displayCountry = (country) => {
     app.lat = country.latlng[0];
 
 
-    $('.info h2').html(`${country.capital}, ${country.name}`);
-    $('.info figure img').attr("src", country.flag);
-    $('.currency p').html(`<em>time to exchange</em> <br>your canadian dollars for ${currencyText}`)
-    $('.moreInfo .moreInfo__findFlights').html(`<div data-skyscanner-widget="LocationWidget" data-locale="en-GB" data-params="colour:#f4d35e;location:${country.capital};locationId:EDI"></div>
+    $('.countryName').html(`${country.name}`);
+    $('.capitalCity').html(`${country.capital}`);
+    $('.flagFigure img').attr("src", country.flag);
+    $('.grid__content--currency').html(`<em>time to exchange</em> <br>your canadian dollars for ${currencyText}`)
+    $('.grid__content--flights').html(`<div data-skyscanner-widget="LocationWidget" data-locale="en-GB" data-params="colour:#f4d35e;location:${country.capital};locationId:EDI"></div>
     <script src="https://widgets.skyscanner.net/widget-server/js/loader.js"></script>`);
+
     const currencyText = country.currencies[0].name.toLowerCase();
 
     const languages = [];
@@ -154,7 +138,7 @@ app.displayCountry = (country) => {
         const language = country.languages[key].name;    
         languages.push(language);
         const languagesString = languages.join(', ').toLowerCase();
-        $('.moreInfo ul').html(`<li><em>learn some words in</em><br> ${languagesString}</li>`)
+        $('.grid__content--info .language').html(`<p><em>learn some words in</em><br> ${languagesString}</p>`)
     }
 
     app.displayAttraction();
@@ -168,13 +152,13 @@ app.displayAttraction = (attraction) => {
     }
     console.log(attractions);
     const attractionString = attractions.join('<br>').toLowerCase();
-    $('.attractions ul').html(`<li><em>top three attractions</em><br> ${attractionString}</li>`)
+    $('.grid__content--info .attractions').html(`<p><em>top three attractions</em><br> ${attractionString}</p>`)
 }
 
 
 app.displayWeather = (weather) => {
     const weatherString = weather.daily.summary.toLowerCase();
-    $('.moreInfo ul').append(`<br><li><em>weather this week</em><br> ${weatherString}</li>`)
+    $('.grid__content--weather').html(`<em>weather this week</em><br> ${weatherString}`)
 }
 
 app.init = function() {
@@ -184,40 +168,3 @@ app.init = function() {
 $(function () {
     app.init();
 });
-
-
-// $.ajax({
-//     url: `https://restcountries.eu/rest/v2/name/${country}`,
-//     method: 'GET',
-//     dataType: 'json'
-// }).then((res) => {
-//     console.log(res);
-    
-
-//     $('.info ul').append($('<li>').append(`${app.countryCurrencySymbol}, ${app.countryCurrencyName}`));
-//     $('.info ul').append($('<li>').append(`${app.countryLanguage}`)); // figure out how to list all languages
-
-
-
-// })
-
-
-
-// lightbox.append(countryName, capCity, currencyText);
-// // then finally append that to the art
-// $('.info').append(lightbox);
-
-
-// const apiURL = 'https://restcountries.eu/rest/v2/name/';
-
-// function getCountryInfo(name) {
-//     return $.ajax({
-//         url: `${apiURL}${name}`,
-//         method: 'GET',
-//         dataType: 'json'
-//     })
-// };
-
-// $(function(){
-//     console.log(getCountryInfo('canada'));
-// });
