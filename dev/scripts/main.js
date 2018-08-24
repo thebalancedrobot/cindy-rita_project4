@@ -66,11 +66,11 @@ app.events = () => {
     $('form').on('submit', function (e) {
         $('form').trigger("reset");
             e.preventDefault();
-            $('.info').css('display', 'block');
-            $('.extraInfo').css('display', 'flex');
             app.getCountryInfo();
-    })
+    });
 }
+
+
 
 app.displayCountry = (country) => {
     app.long = country.latlng[1]
