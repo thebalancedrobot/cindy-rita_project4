@@ -3,13 +3,17 @@ header {
     padding: 25px 50px;
     border-bottom: 1px solid $blue;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    .pickCountry {
+        position: absolute;
+        right: 2%;
+    }
     figure {
-        display: none;
         width: 70px;
-        padding: 0 10rem;
-        margin-right: 300px;
+        // position: absolute;
+        // left: 28%;
+        // padding: 0 10rem;
+        // margin-right: 300px;
     }
 }
 
