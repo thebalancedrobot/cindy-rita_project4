@@ -269,17 +269,13 @@ main {
 .gridPicture__container {
   position: relative;
   background: #9fa1a3;
-  height: 2vh; }
-  .gridPicture__container--info {
-    height: 40vh; }
-  .gridPicture__container--packing {
-    height: 25vh; }
-  .gridPicture__container--extraInfo {
-    height: 30vh; }
-  .gridPicture__container--currency {
-    height: 25vh; }
-  .gridPicture__container--weather {
-    height: 15vh; }
+  height: 2vh;
+  transition: height .5s ease-out; }
+  .gridPicture__container:hover {
+    height: 90vh; }
+
+.gridPicture__container--active {
+  background: red; }
 
 .grid__itemTitle {
   position: absolute;

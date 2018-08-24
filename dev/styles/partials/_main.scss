@@ -47,21 +47,29 @@ main {
     position: relative;
     background: $lightgrey;
     height: 2vh;
-    &--info {
-        height: 40vh;
+    transition: height .5s ease-out;
+    &:hover {
+        height: 90vh;
     }
-    &--packing {
-        height: 25vh;
-    }
-    &--extraInfo {
-        height: 30vh;
-    }
-    &--currency {
-        height: 25vh;
-    }
-    &--weather {
-        height: 15vh;
-    }
+}
+
+.gridPicture__container--active {
+    background: red;
+    // &--info {
+    //     height: 40vh;
+    // }
+    // &--packing {
+    //     height: 25vh;
+    // }
+    // &--extraInfo {
+    //     height: 30vh;
+    // }
+    // &--currency {
+    //     height: 25vh;
+    // }
+    // &--weather {
+    //     height: 15vh;
+    // }
 }
 
 .grid__itemTitle {

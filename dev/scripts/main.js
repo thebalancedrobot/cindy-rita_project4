@@ -66,14 +66,7 @@ app.events = () => {
     $('form').on('submit', function (e) {
         $('form').trigger("reset");
             e.preventDefault();
-            $('.info').css('display', 'block');
-            $('.extraInfo').css('display', 'flex');
             app.getCountryInfo();
-    });
-    
-    // this animates the lightbox for now
-    $('.gridPicture__container').click(function (e) {
-        $(this).toggleClass('fullscreen');
     });
 }
 
