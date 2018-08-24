@@ -1,69 +1,61 @@
 const app = {};
 
-const countries = [
-    {   
-        country: "Argentina",
+const countries = {
+    "Argentina": {
+        cityID: 374,
         climate: "hot",
-        cityID: 374
     },
-    {   
-        country: "Costa Rica",
+    "Costa Rica": {
         climate: "hot",
         cityID: 347
     },
-    {   
-        country: "France",
+    "France": {
         climate: "cool",
         cityID: 14
     },
-    {   
-        country: "Iceland",
+    "Iceland": {
         climate: "cool",
         cityID: 3
     },
-    {   
-        country: "India",
+    "India": {
         climate: "hot",
         cityID: 7586
     },
-    {
-        country: "Mexico",
+    "Mexico": {
         climate: "hot",
         cityID: 2140
     },
-    {   
-        country: "Peru",
+    "Peru": {
         climate: "hot",
         cityID: 41503
     },
-    {
-        country: "South Africa",
+    "South Africa": {
         climate: "hot",
-        cityID: 390
+        cityID: 1063
     },
-    {
-        country: "Thailand",
+    "Thailand": {
         climate: "hot",
         cityID: 315,
     },
-    {
-        country: "Turkey",
+    "Turkey": {
         climate: "hot",
         cityID: 33
     }
-]
+}
 
 
 app.getCountryInfo = () => {
     const countryArray = [];
     for (let key in countries) {
-        const eachCountry = countries[key].country;
+        const eachCountry = key;
         countryArray.push(eachCountry);
     }
-    
-    console.log(countryArray);
-    const country = countryArray[Math.floor(Math.random() * countries.length)];
+
+    let country = countryArray[Math.floor(Math.random() * countryArray.length)];
+
+        
     const countryUrl = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
+
     $('main').css('background', `#fff url(../../images/${country}.jpg) top/contain no-repeat`);
 
     $.ajax({
@@ -73,7 +65,7 @@ app.getCountryInfo = () => {
     })
     .then((res) => {
         app.displayCountry(res[0]);
-
+        let cityID = countries.country.cityID;
         $.ajax({
             url: `https://api.darksky.net/forecast/93932fce8bfc18bf1b4f29a5f1695173/${app.lat},${app.long}`,
             dataType: 'jsonp',
@@ -92,7 +84,7 @@ app.getCountryInfo = () => {
                 },
                 data: {
                     'level': 'poi',
-                    'location': `${app.lat},${app.long}`,
+                    'parents': cityID,
                     'categories': "sightseeing",
                     'limit': '3'
                 }
