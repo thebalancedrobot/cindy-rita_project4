@@ -50,6 +50,52 @@
                         <h4 class="grid__itemTitle">Packing list</h4>
                         <img class="gridPicture__image" src="" alt="">
                     </div>
+                    <div class="grid__content grid__content--packing">
+                        <form action="" class="packingList packingList--hot">
+                            <input type="checkbox" name="hotClimate" class="sunscreen" id="sunscreen" value="sunscreen">
+                            <label for="sunscreen">Sunscreen</label>
+
+                            <input type="checkbox" name="hotClimate" class="hat" id="hat" value="hat">
+                            <label for="hat">Hat</label>
+
+                            <input type="checkbox" name="hotClimate" class="sunglasses" id="sunglasses" value="sunglasses">
+                            <label for="sunglasses">Sunglasses</label>
+
+                            <input type="checkbox" name="hotClimate" class="swimsuit" id="swimsuit" value="swimsuit">
+                            <label for="swimsuit">Swimsuit</label>
+
+                            <input type="checkbox" name="hotClimate" class="sandals/flipflops" id="sandals/flipflops" value="sandals/flipflops">
+                            <label for="sandals/flipflops">Sandals/flipflops</label>
+
+                            <input type="checkbox" name="hotClimate" class="beachbag" id="beachbag" value="beachbag">
+                            <label for="beachbag">Beach Bag</label>
+
+                            <input type="checkbox" name="hotClimate" class="chargers" id="chargers" value="chargers">
+                            <label for="chargers">Chargers & Power Adapter</label>
+                        </form>
+                        <form action="" class="packingList packingList--cold">
+                            <input type="checkbox" name="coldClimate" class="jacket" id="jacket" value="jacket">
+                            <label for="jacket">Jacket</label>
+
+                            <input type="checkbox" name="coldClimate" class="hat" id="hat" value="hat">
+                            <label for="hat">Hat</label>
+
+                            <input type="checkbox" name="coldClimate" class="scarf" id="scarf" value="scarf">
+                            <label for="scarf">Scarf</label>
+
+                            <input type="checkbox" name="coldClimate" class="gloves/mittens" id="gloves/mittens" value="gloves/mittens">
+                            <label for="gloves/mittens">Gloves/mittens</label>
+
+                            <input type="checkbox" name="coldClimate" class="sweaters" id="sweaters" value="sweaters">
+                            <label for="sweaters">Sweaters</label>
+
+                            <input type="checkbox" name="coldClimate" class="boots" id="boots" value="boots">
+                            <label for="boots">Boots</label>
+
+                            <input type="checkbox" name="coldClimate" class="chargers" id="chargers" value="chargers">
+                            <label for="chargers">Chargers & Power Adapter</label>
+                        </form>
+                    </div>
                 </div>
             </section>
 
@@ -102,17 +148,5 @@
 <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
 <script src="public/scripts/main.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBqcwNny6CZKwxNAtFxFC9DMQnKLNsKACA",
-        authDomain: "project4packinglist.firebaseapp.com",
-        databaseURL: "https://project4packinglist.firebaseio.com",
-        projectId: "project4packinglist",
-        storageBucket: "",
-        messagingSenderId: "629510342416"
-    };
-    firebase.initializeApp(config);
-</script>
 </body>
 </html>
