@@ -1,25 +1,86 @@
 const app = {};
 
-const countries = [
-    "Argentina",
-    "Costa Rica",
-    "France",
-    "Iceland",
-    "India",
-    "Mexico",
-    "Peru",
-    "South Africa",
-    "Thailand",
-    "Turkey"]
+// const countries = [
+//     "Argentina",
+//     "Costa Rica",
+//     "France",
+//     "Iceland",
+//     "India",
+//     "Mexico",
+//     "Peru",
+//     "South Africa",
+//     "Thailand",
+//     "Turkey"
+// ]
 
-app.changeImage = () => {
-    const country = countries[Math.floor(Math.random() * countries.length)];
-    const countryUrl = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
-    $('main').css('background', `#fff url(../../images/${country}.jpg) top/contain no-repeat`);
-}
+const countries = [
+    {   
+        country: "Argentina",
+        climate: "hot",
+        cityID: 374
+    },
+    {   
+        country: "Costa Rica",
+        climate: "hot",
+        cityID: 347
+    },
+    {   
+        country: "France",
+        climate: "cool",
+        cityID: 14
+    },
+    {   
+        country: "Iceland",
+        climate: "cool",
+        cityID: 3
+    },
+    {   
+        country: "India",
+        climate: "hot",
+        cityID: 7586
+    },
+    {
+        country: "Mexico",
+        climate: "hot",
+        cityID: 2140
+    },
+    {   
+        country: "Peru",
+        climate: "hot",
+        cityID: 41503
+    },
+    {
+        country: "South Africa",
+        climate: "hot",
+        cityID: 390
+    },
+    {
+        country: "Thailand",
+        climate: "hot",
+        cityID: 315,
+    },
+    {
+        country: "Turkey",
+        climate: "hot",
+        cityID: 33
+    }
+]
+
+// app.changeImage = () => {
+//     const country = countries[Math.floor(Math.random() * countries.length)];
+//     const countryUrl = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
+//     $('main').css('background', `#fff url(../../images/${country}.jpg) top/contain no-repeat`);
+// }
 
 app.getCountryInfo = () => {
-    const country = countries[Math.floor(Math.random() * countries.length)];
+    const countryArray = [];
+    for (let key in countries) {
+        const eachCountry = countries[key].country;
+        countryArray.push(eachCountry);
+    }
+    
+    console.log(countryArray);
+    const country = countryArray[Math.floor(Math.random() * countries.length)];
     const countryUrl = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
     $('main').css('background', `#fff url(../../images/${country}.jpg) top/contain no-repeat`);
 
@@ -30,6 +91,7 @@ app.getCountryInfo = () => {
     })
     .then((res) => {
         app.displayCountry(res[0]);
+
         $.ajax({
             url: `https://api.darksky.net/forecast/93932fce8bfc18bf1b4f29a5f1695173/${app.lat},${app.long}`,
             dataType: 'jsonp',
@@ -75,15 +137,17 @@ app.events = () => {
 
 
 app.displayCountry = (country) => {
+
     app.long = country.latlng[1]
     app.lat = country.latlng[0];
 
-    const currencyText = country.currencies[0].name.toLowerCase();
+
     $('.info h2').html(`${country.capital}, ${country.name}`);
     $('.info figure img').attr("src", country.flag);
     $('.currency p').html(`<em>time to exchange</em> <br>your canadian dollars for ${currencyText}`)
-    $('.moreInfo .findFlights').html(`<div data-skyscanner-widget="LocationWidget" data-locale="en-GB" data-params="colour:#f4d35e;location:${country.capital};locationId:EDI"></div>
+    $('.moreInfo .moreInfo__findFlights').html(`<div data-skyscanner-widget="LocationWidget" data-locale="en-GB" data-params="colour:#f4d35e;location:${country.capital};locationId:EDI"></div>
     <script src="https://widgets.skyscanner.net/widget-server/js/loader.js"></script>`);
+    const currencyText = country.currencies[0].name.toLowerCase();
 
     const languages = [];
     for (let key in country.languages) {
