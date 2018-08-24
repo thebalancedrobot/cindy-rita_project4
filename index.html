@@ -32,7 +32,7 @@
             <section class="grid__box grid__box--info">
                 <div class="grid__item">
                     <span class="grid__itemNumber"><span>01</span></span>
-                    <div class="gridPicture__container gridPicture__container--active--info">
+                    <div class="gridPicture__container gridPicture__container--info">
                         <h4 class="grid__itemTitle">Information</h4>
                         <img class="gridPicture__image" src="" alt="">
                         <div class="grid__content grid__content--info">
@@ -46,7 +46,7 @@
             <section class="grid__box grid__box--packing">
                 <div class="grid__item">
                     <span class="grid__itemNumber"><span>02</span></span>
-                    <div class="gridPicture__container gridPicture__container--active--packing">
+                    <div class="gridPicture__container gridPicture__container--packing">
                         <h4 class="grid__itemTitle">Packing list</h4>
                         <img class="gridPicture__image" src="" alt="">
                     </div>
@@ -56,7 +56,7 @@
             <section class="grid__box grid__box--extraInfo">
                 <div class="grid__item">
                     <span class="grid__itemNumber"><span>03</span></span>
-                    <div class="gridPicture__container gridPicture__container--active--extraInfo">
+                    <div class="gridPicture__container gridPicture__container--extraInfo">
                         <h4 class="grid__itemTitle">Find flights</h4>
                         <img class="gridPicture__image" src="" alt="">
                         <div class="grid__content grid__content--flights">
@@ -69,7 +69,7 @@
             <section class="grid__box grid__box--currency">
                 <div class="grid__item">
                     <span class="grid__itemNumber"><span>04</span></span>
-                    <div class="gridPicture__container gridPicture__container--active--currency">
+                    <div class="gridPicture__container gridPicture__container--currency">
                         <h4 class="grid__itemTitle">Currency conversion</h4>
                         <img class="gridPicture__image" src="" alt="">
                         <div class="grid__content grid__content--currency">
@@ -91,36 +91,8 @@
             </section>
         </div>
     </main>
-
-
-
-
-
-        <!-- <section class="info">
-            <figure>
-                <img src="" class="flag">
-            </figure>
-            <div class="countryName">
-                <h2></h2>
-            </div>
-        </section>
-        <section class="extraInfo">
-            <div class="moreInfo">
-                <h2>more info</h2>
-                <ul></ul>
-                <div class="moreInfo__findFlights"></div>
-            </div>
-            <div class="attractions">
-                <h2>attractions</h2>
-                <ul></ul>
-                <form action="" class="toDoList">
-            </div>
-            <div class="currency">
-                <h2>currency</h2>
-                <p></p>
-            </div>
-        </section> -->
     <!-- MAIN SECTION ENDS -->
+
     <!-- FOOTER SECTION BEGINS -->
     <footer>
 
@@ -129,5 +101,18 @@
 <script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
 <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
 <script src="public/scripts/main.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBqcwNny6CZKwxNAtFxFC9DMQnKLNsKACA",
+        authDomain: "project4packinglist.firebaseapp.com",
+        databaseURL: "https://project4packinglist.firebaseio.com",
+        projectId: "project4packinglist",
+        storageBucket: "",
+        messagingSenderId: "629510342416"
+    };
+    firebase.initializeApp(config);
+</script>
 </body>
 </html>

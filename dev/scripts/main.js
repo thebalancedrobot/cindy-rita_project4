@@ -161,6 +161,10 @@ app.displayWeather = (weather) => {
     $('.grid__content--weather').html(`<em>weather this week</em><br> ${weatherString}`)
 }
 
+app.displayPackingList = function(){
+    $
+}
+
 app.init = function() {
     app.events();
 }
