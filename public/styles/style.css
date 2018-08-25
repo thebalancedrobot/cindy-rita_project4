@@ -211,6 +211,9 @@ form input[type="submit"] {
     background-color: #fff;
     color: #f4d35e; }
 
+.hidden {
+  display: none; }
+
 html {
   font-size: 62.5%; }
 
@@ -284,7 +287,8 @@ header {
   width: 20vh;
   left: 21.5%;
   top: 50%;
-  position: absolute; }
+  position: absolute;
+  display: none; }
 
 .grid {
   display: grid;
