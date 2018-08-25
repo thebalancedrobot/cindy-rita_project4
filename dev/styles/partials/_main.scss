@@ -1,19 +1,22 @@
-main {
+.mainMap {
     background: #fff url(../../images/world.jpg) top/contain no-repeat;
     overflow: hidden;
     min-height: 90vh;
+    width: 100%;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    z-index: -10;
 }
 
 .mapBackground {
-   background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(../../images/argentina.jpg) top/contain no-repeat; 
-   overflow: hidden;
-   min-height: 90vh;
+    overflow: hidden;
+    animation: 2s ease-in forwards 1 backgroundFadeout;
 }
 
 .flagFigure {
     width: 20vh;
     left: 21.5%;
-    border: 1px solid $darkgrey;
     top: 50%;
     position: absolute;
     display: none;
@@ -56,27 +59,24 @@ main {
     position: relative;
     background: $lightgrey;
     height: 2vh;
-    transition: height .5s ease-out;
-    &:hover {
-        height: 90vh;
-    }
-}
-
-.gridPicture__container--active {
-    height: 25vh;
-    // &--info {
-    //     height: 40vh;
-    // }
-    // &--extraInfo {
-    //     height: 30vh;
-    // }
-    // &--weather {
-    //     height: 15vh;
+    transition: height .5s ease-in;
+    // &:hover {
+    //     height: 85vh;
     // }
 }
 
-.gridPicture__container--active--info {
-    height: 40vh;
+.gridPicture__container--infoActive,
+.gridPicture__container--currencyActive {
+    animation: 1.5s ease-in 2s forwards 1 heightGrow30;
+}
+
+.gridPicture__container--packingActive,
+.gridPicture__container--weatherActive {
+    animation: 1.5s ease-in 2s forwards 1 heightGrow15;
+}
+
+.gridPicture__container--extraInfoActive {
+    animation: 1.5s ease-in 2s forwards 1 heightGrow20;
 }
 
 .grid__itemTitle {
@@ -85,16 +85,16 @@ main {
     right: -5rem;
     writing-mode: vertical-rl;
     white-space: nowrap;
-    display: none;
+    opacity: 0;
 }
 
-.grid__figure {
-    width: 30%;
+.grid__itemTitle--active {
+    animation: 1.5s ease-in 2s forwards 1 fadeIn;
 }
 
-// - - - - - - - - - - - - - - - 
-// LIGHTBOX STYLES
-// - - - - - - - - - - - - - - - 
+.grid__content {
+    padding: 10px;
+}
 
 
 
@@ -104,43 +104,3 @@ main {
 
 
 
-
-
-
-// .info {
-//     width: 60vw;
-//     display: none;
-//     margin: 0 auto;
-//     padding-top: 0.5rem;
-//     .countryName {
-//         background-color: white;
-//         display: inline-block;
-//         padding: 1.5rem;
-//     }
-//     figure {    
-//         border: 1px solid $darkgrey;
-//         width: 25%;
-//         margin: 3rem 0;
-//     }  
-//     img {
-//         opacity: 0.6;
-//     }
-// }
-
-// .extraInfo {
-//     display: none;
-//     margin: 0 auto;
-//     align-self: center;
-//     width: 100vw;
-//     justify-content: space-around;
-//     position: absolute;
-//     bottom: 0;
-// }
-
-//  .moreInfo,
-//  .attractions,
-//  .currency {
-//     width: 25%;
-//     box-shadow: 6px -7px 0 244, 211, 94, 0.1;
-//     padding: 3rem;
-// }

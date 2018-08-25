@@ -45,6 +45,8 @@ app.countries = {
     }
 }
 
+app.getCountryInfo = () => {
+    
 app.countryArray = [];
 for (let key in app.countries) {
     app.eachCountry = key;
@@ -64,11 +66,11 @@ app.getRandomCountry = () => {
 };
 
 
+
 app.getCountryInfo = () => {    
     app.countryString = app.country.split(' ').join('');
     console.log(app.countryString);
     app.countryUrl = `https://restcountries.eu/rest/v2/name/${app.country}?fullText=true`;
-
 
     $('.mainMap').css('background', `#fff url(../../images/${country}.jpg) top/contain no-repeat`).addClass('mapBackground');
 
@@ -126,15 +128,20 @@ app.events = () => {
         app.getRandomCountry();
         app.getCountryInfo();
         app.displayAttraction();
-        
     });
 }
 
 app.displayCountry = (country) => {
+
+    app.long = country.latlng[1]
+    app.lat = country.latlng[0];
+
+    $('.countryName').html(`${country.name}`).css('opacity', '0').addClass('displayAnimation');
+    $('.capitalCity').html(`${country.capital}`).css('opacity', '0').addClass('displayAnimation');
+    $('.flagFigure img').attr("src", country.flag).css('opacity', '0').addClass('displayAnimation');
+    $('.flagFigure').css({'border': '1px solid #414344', 'opacity': '0'}).addClass('displayAnimation');
+  
     const currencyText = country.currencies[0].name.toLowerCase();
-    $('.countryName').html(`${country.name}`);
-    $('.capitalCity').html(`${country.capital}`);
-    $('.flagFigure img').attr("src", country.flag);
     $('.grid__content--currency').html(`<em>time to exchange</em> <br>your canadian dollars for ${currencyText}`)
     $('.grid__content--flights').html(`<div data-skyscanner-widget="LocationWidget" data-locale="en-GB" data-params="colour:#f4d35e;location:${country.capital};locationId:EDI"></div>
     <script src="https://widgets.skyscanner.net/widget-server/js/loader.js"></script>`);
@@ -180,3 +187,5 @@ app.init = function() {
 $(function () {
     app.init();
 });
+
+

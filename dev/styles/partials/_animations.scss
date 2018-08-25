@@ -1,0 +1,59 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes backgroundFadeout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes heightGrow15 {
+    0% {
+        height: 2vh;
+    }
+
+    100% {
+        height: 15vh;
+    }
+}
+
+@keyframes heightGrow20 {
+    0% {
+        height: 2vh;
+    }
+
+    100% {
+        height: 20vh;
+    }
+}
+
+@keyframes heightGrow30 {
+    0% {
+        height: 2vh;
+    }
+
+    100% {
+        height: 30vh;
+    }
+}
+
+@keyframes heightGrow {
+    0% {
+        height: 50vh;
+    }
+
+    100% {
+        height: 85vh;
+    }
+}

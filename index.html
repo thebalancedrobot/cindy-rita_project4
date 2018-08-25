@@ -22,7 +22,8 @@
     </header>
     <!-- HEADER SECTION ENDS -->
     <!-- MAIN SECTION BEGINS -->
-    <main class="mapBackground">
+    <main>
+        <div class="mainMap"></div>
         <h3 class="capitalCity"></h3>
         <h2 class="countryName"></h2>
         <figure class="flagFigure">
@@ -49,7 +50,7 @@
                     <div class="gridPicture__container gridPicture__container--packing">
                         <h4 class="grid__itemTitle">Packing list</h4>
                         <img class="gridPicture__image" src="" alt="">
-                    <div class="grid__content grid__content--packing">
+                        <div class="grid__content grid__content--packing">
                         <form action="" class="packingList packingList--hot hidden">
                             <input type="checkbox" name="hotClimate" class="sunscreen" id="sunscreen" value="sunscreen">
                             <label for="sunscreen">Sunscreen</label>
@@ -126,7 +127,7 @@
             <section class="grid__box grid__box--weather">
                 <div class="grid__item">
                     <span class="grid__itemNumber"><span>05</span></span>
-                    <div class="gridPicture__container gridPicture__container--active--weather">
+                    <div class="gridPicture__container gridPicture__container--weather">
                         <img class="gridPicture__image" src="" alt="">
                         <div class="grid__content grid__content--weather">
                             
@@ -146,6 +147,5 @@
 <script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
 <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
 <script src="public/scripts/main.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
 </body>
 </html>
