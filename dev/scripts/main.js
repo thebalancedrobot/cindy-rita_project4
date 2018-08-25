@@ -45,8 +45,6 @@ app.countries = {
     }
 }
 
-app.getCountryInfo = () => {
-    
 app.countryArray = [];
 for (let key in app.countries) {
     app.eachCountry = key;
@@ -66,55 +64,55 @@ app.getRandomCountry = () => {
 };
 
 
-
-app.getCountryInfo = () => {    
+app.getCountryInfo = () => {
     app.countryString = app.country.split(' ').join('');
     console.log(app.countryString);
     app.countryUrl = `https://restcountries.eu/rest/v2/name/${app.country}?fullText=true`;
 
-    $('.mainMap').css('background', `#fff url(../../images/${country}.jpg) top/contain no-repeat`).addClass('mapBackground');
+
+    $('.mainMap').css('background', `#fff url(../../images/${app.country}.jpg) top/contain no-repeat`).addClass('mapBackground');
 
     $.ajax({
         url: app.countryUrl,
         dataType: 'json',
         method: 'GET',
     })
-    .then((res) => {
-        app.displayCountry(res[0]);
-        app.long = res[0].latlng[1]
-        app.lat = res[0].latlng[0];
-        $.ajax({
-            url: `https://api.darksky.net/forecast/93932fce8bfc18bf1b4f29a5f1695173/${app.lat},${app.long}?units=si`,
-            units: '[si]',
-            dataType: 'jsonp',
-            method: 'GET'
-        })
-        .then((res2) => {
-            app.displayWeather(res2);
-            app.attractionsKey = 'zziJYcjlmE8LbWHdvU5vC8UcSFvKEPsC3nkAl7eK';
-            app.attractionsURL = 'https://api.sygictravelapi.com/1.1/en/places/list';
-            app.cityID = app.countries[`${app.country}`].cityID;
+        .then((res) => {
+            app.displayCountry(res[0]);
+            app.long = res[0].latlng[1]
+            app.lat = res[0].latlng[0];
             $.ajax({
-                url: app.attractionsURL,
-                dataType: 'json',
-                method: 'GET',
-                headers: {
-                    'x-api-key': app.attractionsKey,
-                },
-                data: {
-                    'level': 'poi',
-                    'parents': `city:${app.cityID}`,
-                    'categories': "sightseeing",
-                    'limit': '3'
-                }
+                url: `https://api.darksky.net/forecast/93932fce8bfc18bf1b4f29a5f1695173/${app.lat},${app.long}?units=si`,
+                units: '[si]',
+                dataType: 'jsonp',
+                method: 'GET'
             })
-            .then((res3) => {
-                app.displayAttraction(res3.data.places);
-            })
+                .then((res2) => {
+                    app.displayWeather(res2);
+                    app.attractionsKey = 'zziJYcjlmE8LbWHdvU5vC8UcSFvKEPsC3nkAl7eK';
+                    app.attractionsURL = 'https://api.sygictravelapi.com/1.1/en/places/list';
+                    app.cityID = app.countries[`${app.country}`].cityID;
+                    $.ajax({
+                        url: app.attractionsURL,
+                        dataType: 'json',
+                        method: 'GET',
+                        headers: {
+                            'x-api-key': app.attractionsKey,
+                        },
+                        data: {
+                            'level': 'poi',
+                            'parents': `city:${app.cityID}`,
+                            'categories': "sightseeing",
+                            'limit': '3'
+                        }
+                    })
+                        .then((res3) => {
+                            app.displayAttraction(res3.data.places);
+                        })
+                })
         })
-    })
 }
-    
+
 app.events = () => {
     $('.pickCountry').on('submit', function (e) {
         $('.pickCountry').trigger("reset");
@@ -128,27 +126,24 @@ app.events = () => {
         app.getRandomCountry();
         app.getCountryInfo();
         app.displayAttraction();
+
     });
 }
 
 app.displayCountry = (country) => {
-
-    app.long = country.latlng[1]
-    app.lat = country.latlng[0];
-
-    $('.countryName').html(`${country.name}`).css('opacity', '0').addClass('displayAnimation');
-    $('.capitalCity').html(`${country.capital}`).css('opacity', '0').addClass('displayAnimation');
-    $('.flagFigure img').attr("src", country.flag).css('opacity', '0').addClass('displayAnimation');
-    $('.flagFigure').css({'border': '1px solid #414344', 'opacity': '0'}).addClass('displayAnimation');
-  
     const currencyText = country.currencies[0].name.toLowerCase();
+    $('.countryName').html(`${country.name}`);
+    $('.capitalCity').html(`${country.capital}`);
+    $('.flagFigure img').attr("src", country.flag).css('opacity', '0').addClass('displayAnimation');
+    $('.flagFigure').css({ 'border': '1px solid #414344', 'opacity': '0' }).addClass('displayAnimation');
     $('.grid__content--currency').html(`<em>time to exchange</em> <br>your canadian dollars for ${currencyText}`)
     $('.grid__content--flights').html(`<div data-skyscanner-widget="LocationWidget" data-locale="en-GB" data-params="colour:#f4d35e;location:${country.capital};locationId:EDI"></div>
     <script src="https://widgets.skyscanner.net/widget-server/js/loader.js"></script>`);
-    
+    console.log(country.flag);
+
     const languages = [];
     for (let key in country.languages) {
-        const language = country.languages[key].name;    
+        const language = country.languages[key].name;
         languages.push(language);
         const languagesString = languages.join(', ').toLowerCase();
         $('.grid__content--info .language').html(`<p><em>learn some words in</em><br> ${languagesString}</p>`)
@@ -180,12 +175,10 @@ app.displayWeather = (weather) => {
     $('.grid__content--weather').html(`<em>weather this week</em><br> ${weatherString}`)
 }
 
-app.init = function() {
+app.init = function () {
     app.events();
 }
 
 $(function () {
     app.init();
 });
-
-
