@@ -43,7 +43,6 @@ const countries = {
     }
 }
 
-
 app.getCountryInfo = () => {
     const countryArray = [];
     for (let key in countries) {
@@ -56,7 +55,7 @@ app.getCountryInfo = () => {
         
     const countryUrl = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
 
-    $('main').css('background', `#fff url(../../images/${country}.jpg) top/contain no-repeat`);
+    $('.mainMap').css('background', `#fff url(../../images/${country}.jpg) top/contain no-repeat`).addClass('mapBackground');
 
     $.ajax({
         url: countryUrl,
@@ -101,10 +100,20 @@ app.getCountryInfo = () => {
 app.events = () => {
     $('.pickCountry').on('submit', function (e) {
         $('.pickCountry').trigger("reset");
-            e.preventDefault();
-            $('.grid__itemTitle').css('display', 'block');
-        $('.gridPicture__container').addClass('gridPicture__container--active');
-            app.getCountryInfo();
+        e.preventDefault();
+        $('.grid__itemTitle').addClass('grid__itemTitle--active');
+
+        $('.gridPicture__container--info').addClass('gridPicture__container--infoActive');
+
+        $('.gridPicture__container--packing').addClass('gridPicture__container--packingActive');
+
+        $('.gridPicture__container--extraInfo').addClass('gridPicture__container--extraInfoActive');
+
+        $('.gridPicture__container--currency').addClass('gridPicture__container--currencyActive');
+
+        $('.gridPicture__container--weather').addClass('gridPicture__container--weatherActive');
+
+        app.getCountryInfo();
     });
 }
 
@@ -115,10 +124,10 @@ app.displayCountry = (country) => {
     app.long = country.latlng[1]
     app.lat = country.latlng[0];
 
-
-    $('.countryName').html(`${country.name}`);
-    $('.capitalCity').html(`${country.capital}`);
-    $('.flagFigure img').attr("src", country.flag);
+    $('.countryName').html(`${country.name}`).css('opacity', '0').addClass('displayAnimation');
+    $('.capitalCity').html(`${country.capital}`).css('opacity', '0').addClass('displayAnimation');
+    $('.flagFigure img').attr("src", country.flag).css('opacity', '0').addClass('displayAnimation');
+    $('.flagFigure').css({'border': '1px solid #414344', 'opacity': '0'}).addClass('displayAnimation');
     $('.grid__content--currency').html(`<em>time to exchange</em> <br>your canadian dollars for ${currencyText}`)
     $('.grid__content--flights').html(`<div data-skyscanner-widget="LocationWidget" data-locale="en-GB" data-params="colour:#f4d35e;location:${country.capital};locationId:EDI"></div>
     <script src="https://widgets.skyscanner.net/widget-server/js/loader.js"></script>`);
@@ -160,3 +169,5 @@ app.init = function() {
 $(function () {
     app.init();
 });
+
+

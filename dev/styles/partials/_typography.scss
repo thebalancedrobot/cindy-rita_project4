@@ -25,6 +25,10 @@ h2, h3 {
     position: absolute;
 }
 
+.displayAnimation {
+    animation: 1.5s ease-in 2s forwards 1 fadeIn;
+}
+
 h2 {
     font-size: 8rem;
     top: 30%;
