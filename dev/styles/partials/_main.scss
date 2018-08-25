@@ -1,5 +1,5 @@
 .mainMap {
-    background: #fff url(../../images/world.jpg) top/contain no-repeat;
+    background: #fff url(../../images/world.jpg) top/cover no-repeat;
     overflow: hidden;
     min-height: 90vh;
     width: 100%;
@@ -16,9 +16,16 @@
 
 .flagFigure {
     width: 20vh;
-    left: 21.5%;
-    top: 50%;
+    margin: 2.5rem 0;
+    // left: 21.5%;
+    // top: 50%;
+    // position: absolute;
+}
+
+.countryInformation {
     position: absolute;
+    left: 21.5%;
+    top: 30%;
 }
 
 .grid {
