@@ -22,7 +22,7 @@ h1 {
 
 h2, h3 {
     font-family: $heading-font;
-    position: absolute;
+    // position: absolute;
 }
 
 .displayAnimation {
@@ -31,15 +31,14 @@ h2, h3 {
 
 h2 {
     font-size: 8rem;
-    top: 30%;
-    left: 21%;
+    line-height: 5.5rem;
     letter-spacing: 7px;
 }
 
 h3 {
     font-size: 5rem;
-    top: 40%;
-    left: 21.5%;
+    // top: 40%;
+    // left: 21.5%;
     text-transform: lowercase;
 }
 

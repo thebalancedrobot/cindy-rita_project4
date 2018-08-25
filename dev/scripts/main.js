@@ -70,7 +70,7 @@ app.getCountryInfo = () => {
     app.countryUrl = `https://restcountries.eu/rest/v2/name/${app.country}?fullText=true`;
 
 
-    $('.mainMap').css('background', `#fff url(../../images/${app.country}.jpg) top/contain no-repeat`).addClass('mapBackground');
+    $('.mainMap').css('background', `#fff url(../../images/${app.country}.jpg) top/cover no-repeat`).addClass('mapBackground');
 
     $.ajax({
         url: app.countryUrl,
@@ -132,8 +132,8 @@ app.events = () => {
 
 app.displayCountry = (country) => {
     const currencyText = country.currencies[0].name.toLowerCase();
-    $('.countryName').html(`${country.name}`);
-    $('.capitalCity').html(`${country.capital}`);
+    $('.countryName').html(`${country.name}`).css('opacity', '0').addClass('displayAnimation');
+    $('.capitalCity').html(`${country.capital}`).css('opacity', '0').addClass('displayAnimation');
     $('.flagFigure img').attr("src", country.flag).css('opacity', '0').addClass('displayAnimation');
     $('.flagFigure').css({ 'border': '1px solid #414344', 'opacity': '0' }).addClass('displayAnimation');
     $('.grid__content--currency').html(`<em>time to exchange</em> <br>your canadian dollars for ${currencyText}`)
