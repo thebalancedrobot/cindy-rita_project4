@@ -1,98 +1,113 @@
 const app = {};
+console.log(app);
 
-const countries = {
-    "Argentina": {
+
+app.countries = {
+    "argentina": {
         cityID: 374,
         climate: "hot",
     },
-    "Costa Rica": {
+    "costa rica": {
         climate: "hot",
         cityID: 347
     },
-    "France": {
+    "france": {
         climate: "cool",
         cityID: 14
     },
-    "Iceland": {
+    "iceland": {
         climate: "cool",
         cityID: 3
     },
-    "India": {
+    "india": {
         climate: "hot",
         cityID: 7586
     },
-    "Mexico": {
+    "mexico": {
         climate: "hot",
         cityID: 2140
     },
-    "Peru": {
+    "italy": {
         climate: "hot",
-        cityID: 41503
+        cityID: 20
     },
-    "South Africa": {
+    "south africa": {
         climate: "hot",
         cityID: 1063
     },
-    "Thailand": {
+    "thailand": {
         climate: "hot",
         cityID: 315,
     },
-    "Turkey": {
+    "turkey": {
         climate: "hot",
         cityID: 33
     }
 }
 
+app.countryArray = [];
+for (let key in app.countries) {
+    app.eachCountry = key;
+    app.countryArray.push(app.eachCountry);
+}
 
-app.getCountryInfo = () => {
-    const countryArray = [];
-    for (let key in countries) {
-        const eachCountry = key;
-        countryArray.push(eachCountry);
-    }
+app.country;
+app.cityID;
+app.cityClimate;
+app.countryString;
 
-    let country = countryArray[Math.floor(Math.random() * countryArray.length)];
 
-        
-    const countryUrl = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
+app.getRandomCountry = () => {
+    app.country = app.countryArray[Math.floor(Math.random() * app.countryArray.length)];
+    app.cityID = app.countries[`${app.country}`].cityID;
+    app.cityClimate = app.countries[`${app.country}`].climate;
+};
 
-    $('main').css('background', `#fff url(../../images/${country}.jpg) top/contain no-repeat`);
+
+app.getCountryInfo = () => {    
+    app.countryString = app.country.split(' ').join('');
+    console.log(app.countryString);
+    app.countryUrl = `https://restcountries.eu/rest/v2/name/${app.country}?fullText=true`;
+
+
+    $('.mainMap').css('background', `#fff url(../../images/${country}.jpg) top/contain no-repeat`).addClass('mapBackground');
 
     $.ajax({
-        url: countryUrl,
+        url: app.countryUrl,
         dataType: 'json',
         method: 'GET',
     })
     .then((res) => {
         app.displayCountry(res[0]);
-        let cityID = countries.country.cityID;
+        app.long = res[0].latlng[1]
+        app.lat = res[0].latlng[0];
         $.ajax({
-            url: `https://api.darksky.net/forecast/93932fce8bfc18bf1b4f29a5f1695173/${app.lat},${app.long}`,
+            url: `https://api.darksky.net/forecast/93932fce8bfc18bf1b4f29a5f1695173/${app.lat},${app.long}?units=si`,
+            units: '[si]',
             dataType: 'jsonp',
             method: 'GET'
         })
         .then((res2) => {
             app.displayWeather(res2);
-            const attractionsKey = 'zziJYcjlmE8LbWHdvU5vC8UcSFvKEPsC3nkAl7eK';
-            const attractionsURL = 'https://api.sygictravelapi.com/1.1/en/places/list';
+            app.attractionsKey = 'zziJYcjlmE8LbWHdvU5vC8UcSFvKEPsC3nkAl7eK';
+            app.attractionsURL = 'https://api.sygictravelapi.com/1.1/en/places/list';
+            app.cityID = app.countries[`${app.country}`].cityID;
             $.ajax({
-                url: attractionsURL,
+                url: app.attractionsURL,
                 dataType: 'json',
                 method: 'GET',
                 headers: {
-                    'x-api-key': attractionsKey,
+                    'x-api-key': app.attractionsKey,
                 },
                 data: {
                     'level': 'poi',
-                    'parents': cityID,
+                    'parents': `city:${app.cityID}`,
                     'categories': "sightseeing",
                     'limit': '3'
                 }
             })
             .then((res3) => {
                 app.displayAttraction(res3.data.places);
-                console.log(res3);
-                // console.log(res3.data.places[0]);
             })
         })
     })
@@ -101,30 +116,29 @@ app.getCountryInfo = () => {
 app.events = () => {
     $('.pickCountry').on('submit', function (e) {
         $('.pickCountry').trigger("reset");
-            e.preventDefault();
-            $('.grid__itemTitle').css('display', 'block');
-        $('.gridPicture__container').addClass('gridPicture__container--active');
-            app.getCountryInfo();
+        e.preventDefault();
+        $('.grid__itemTitle').addClass('grid__itemTitle--active');
+        $('.gridPicture__container--info').addClass('gridPicture__container--infoActive');
+        $('.gridPicture__container--packing').addClass('gridPicture__container--packingActive');
+        $('.gridPicture__container--extraInfo').addClass('gridPicture__container--extraInfoActive');
+        $('.gridPicture__container--currency').addClass('gridPicture__container--currencyActive');
+        $('.gridPicture__container--weather').addClass('gridPicture__container--weatherActive');
+        app.getRandomCountry();
+        app.getCountryInfo();
+        app.displayAttraction();
+        
     });
 }
 
-
-
 app.displayCountry = (country) => {
-
-    app.long = country.latlng[1]
-    app.lat = country.latlng[0];
-
-
+    const currencyText = country.currencies[0].name.toLowerCase();
     $('.countryName').html(`${country.name}`);
     $('.capitalCity').html(`${country.capital}`);
     $('.flagFigure img').attr("src", country.flag);
     $('.grid__content--currency').html(`<em>time to exchange</em> <br>your canadian dollars for ${currencyText}`)
     $('.grid__content--flights').html(`<div data-skyscanner-widget="LocationWidget" data-locale="en-GB" data-params="colour:#f4d35e;location:${country.capital};locationId:EDI"></div>
     <script src="https://widgets.skyscanner.net/widget-server/js/loader.js"></script>`);
-
-    const currencyText = country.currencies[0].name.toLowerCase();
-
+    
     const languages = [];
     for (let key in country.languages) {
         const language = country.languages[key].name;    
@@ -133,7 +147,14 @@ app.displayCountry = (country) => {
         $('.grid__content--info .language').html(`<p><em>learn some words in</em><br> ${languagesString}</p>`)
     }
 
-    app.displayAttraction();
+    if (app.cityClimate === "hot") {
+        $('.packingList--hot').removeClass('hidden');
+        $('.packingList--cold').addClass('hidden');
+    } else {
+        $('.packingList--cold').removeClass('hidden');
+        $('.packingList--hot').addClass('hidden');
+    }
+
 };
 
 app.displayAttraction = (attraction) => {
@@ -142,7 +163,6 @@ app.displayAttraction = (attraction) => {
         const attractionName = attraction[key].name;
         attractions.push(attractionName);
     }
-    console.log(attractions);
     const attractionString = attractions.join('<br>').toLowerCase();
     $('.grid__content--info .attractions').html(`<p><em>top three attractions</em><br> ${attractionString}</p>`)
 }
