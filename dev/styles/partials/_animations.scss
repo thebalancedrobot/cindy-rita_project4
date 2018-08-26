@@ -18,61 +18,51 @@
     }
 }
 
-@keyframes gridBgFade {
-    0% {
-        background: rgba(57, 169, 189, 1);
-    }
-
-    100% {
-        background: rgba(57, 169, 189, 0.7);
-    }
-}
-
 @keyframes heightGrow23 {
     0% {
         height: 2vh;
-        background: rgba(57, 169, 189, 1);
+        background: rgba(159, 161, 163, 1);
     }
 
     100% {
         height: 23vh;
-        background: rgba(57, 169, 189, 0.7);
+        background: rgba(159, 161, 163, 0.6);
     }
 }
 
 @keyframes heightGrow25 {
     0% {
         height: 2vh;
-        background: rgba(57, 169, 189, 1);
+        background: rgba(159, 161, 163, 1);
     }
 
     100% {
         height: 25vh;
-        background: rgba(57, 169, 189, 0.7);
+        background: rgba(159, 161, 163, 0.6);
     }
 }
 
 @keyframes heightGrow30 {
     0% {
         height: 2vh;
-        background: rgba(57, 169, 189, 1);
+        background: rgba(159, 161, 163, 1);
     }
 
     100% {
         height: 30vh;
-        background: rgba(57, 169, 189, 0.7);
+        background: rgba(159, 161, 163, 0.6);
     }
 }
 
 @keyframes heightGrow35 {
     0% {
         height: 2vh;
-        background: rgba(57, 169, 189, 1);
+        background: rgba(159, 161, 163, 1);
     }
 
     100% {
         height: 35vh;
-        background: rgba(57, 169, 189, 0.7);
+        background: rgba(159, 161, 163, 0.6);
     }
 }
 
@@ -83,17 +73,5 @@
 
     100% {
         height: 85vh;
-    }
-}
-
-@keyframes mediaHeight {
-    0% {
-        height: 2vh;
-        background: rgba(57, 169, 189, 1)
-    }
-
-    100% {
-        height: calc(100% - 40px);
-        background: rgba(57, 169, 189, 0.7)
     }
 }

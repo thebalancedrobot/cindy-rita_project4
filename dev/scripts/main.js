@@ -119,12 +119,13 @@ app.events = () => {
         e.preventDefault();
         $('.grid__itemTitle').addClass('grid__itemTitle--active');
         $('.gridPicture__image').addClass('gridPicture__image--active');
-        $('.grid__itemInner--info').fadeOut(100).delay(2000).fadeIn(1).addClass('grid__itemInner--infoActive');
-        $('.grid__itemInner--flights').fadeOut(100).delay(2000).fadeIn(1).addClass('grid__itemInner--flightsActive');
-        $('.grid__itemInner--currency').fadeOut(100).delay(2000).fadeIn(1).addClass('grid__itemInner--currencyActive');
-        $('.grid__itemInner--packing').fadeOut(100).delay(2000).fadeIn(1).addClass('grid__itemInner--packingActive');
-        $('.grid__itemInner--weather').fadeOut(100).delay(2000).fadeIn(1).addClass('grid__itemInner--weatherActive');
+        $('.grid__itemInner--info').fadeOut(1).delay(2500).fadeIn(1000).addClass('grid__itemInner--infoActive');
+        $('.grid__itemInner--flights').fadeOut(1).delay(2500).fadeIn(1000).addClass('grid__itemInner--flightsActive');
+        $('.grid__itemInner--currency').fadeOut(1).delay(2500).fadeIn(1000).addClass('grid__itemInner--currencyActive');
+        $('.grid__itemInner--packing').fadeOut(1).delay(2500).fadeIn(1000).addClass('grid__itemInner--packingActive');
+        $('.grid__itemInner--weather').fadeOut(1).delay(2500).fadeIn(1000).addClass('grid__itemInner--weatherActive');
         $('.grid__content').css('opacity', '1');
+
         app.getRandomCountry();
         app.getCountryInfo();
         app.displayAttraction();
@@ -148,7 +149,7 @@ app.displayCountry = (country) => {
         const language = country.languages[key].name;
         languages.push(language);
         const languagesString = languages.join(', ').toLowerCase();
-        $('.grid__content--info .language').html(`<p><h5>brush up on your:</h5>${languagesString}</p></br>`)
+        $('.grid__content--info .language').html(`<p><h5>brush up on your:</h5>${languagesString}</p>`)
     }
 
     if (app.cityClimate === "hot") {

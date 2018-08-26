@@ -155,57 +155,43 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   100% {
     opacity: 0.4; } }
 
-@keyframes gridBgFade {
-  0% {
-    background: #39a9bd; }
-  100% {
-    background: rgba(57, 169, 189, 0.7); } }
-
 @keyframes heightGrow23 {
   0% {
     height: 2vh;
-    background: #39a9bd; }
+    background: #9fa1a3; }
   100% {
     height: 23vh;
-    background: rgba(57, 169, 189, 0.7); } }
+    background: rgba(159, 161, 163, 0.6); } }
 
 @keyframes heightGrow25 {
   0% {
     height: 2vh;
-    background: #39a9bd; }
+    background: #9fa1a3; }
   100% {
     height: 25vh;
-    background: rgba(57, 169, 189, 0.7); } }
+    background: rgba(159, 161, 163, 0.6); } }
 
 @keyframes heightGrow30 {
   0% {
     height: 2vh;
-    background: #39a9bd; }
+    background: #9fa1a3; }
   100% {
     height: 30vh;
-    background: rgba(57, 169, 189, 0.7); } }
+    background: rgba(159, 161, 163, 0.6); } }
 
 @keyframes heightGrow35 {
   0% {
     height: 2vh;
-    background: #39a9bd; }
+    background: #9fa1a3; }
   100% {
     height: 35vh;
-    background: rgba(57, 169, 189, 0.7); } }
+    background: rgba(159, 161, 163, 0.6); } }
 
 @keyframes heightGrowFull {
   0% {
     height: 35vh; }
   100% {
     height: 85vh; } }
-
-@keyframes mediaHeight {
-  0% {
-    height: 2vh;
-    background: #39a9bd; }
-  100% {
-    height: calc(100% - 40px);
-    background: rgba(57, 169, 189, 0.7); } }
 
 html {
   height: 100%; }
@@ -293,7 +279,8 @@ h5 {
   margin-bottom: .5rem; }
 
 p {
-  margin-top: 0; }
+  margin-top: 0;
+  margin-bottom: 5rem; }
 
 .grid__itemTitle--weather {
   display: none; }
@@ -383,12 +370,12 @@ header {
   padding-bottom: .5rem; }
 
 .grid__itemInner {
-  background: #39a9bd;
+  background: #9fa1a3;
   position: relative;
   height: 2.5vh; }
 
 .grid__itemInner--infoActive {
-  animation: 1.2s ease-in forwards 1 heightGrow35; }
+  animation: 1.2s ease-in forwards 1 heightGrow30; }
   .grid__itemInner--infoActive:hover {
     animation: .5s ease-in forwards 1 heightGrowFull; }
 
@@ -405,7 +392,7 @@ header {
     animation: .5s ease-in forwards 1 heightGrowFull; }
 
 .grid__itemInner--packingActive {
-  animation: 1.2s ease-in forwards 1 heightGrow30; }
+  animation: 1.2s ease-in forwards 1 heightGrow35; }
   .grid__itemInner--packingActive:hover {
     animation: .5s ease-in forwards 1 heightGrowFull; }
 
@@ -424,20 +411,20 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem;
-  margin: 1.8rem;
+  padding: 3.5rem;
   margin-bottom: 0;
-  background: rgba(159, 161, 163, 0.8);
+  background: rgba(159, 161, 163, 0.6);
   height: 100%; }
 
 .gridPicture__image {
   max-width: 13rem;
   text-align: center;
-  margin-bottom: 8rem;
+  margin-bottom: 5rem;
   opacity: 0; }
 
 .gridPicture__image--info {
-  max-width: 15rem; }
+  max-width: 16rem;
+  margin-bottom: 0; }
 
 .gridPicture__image--active {
   animation: 2s ease-in forwards 1 fadeIn; }
@@ -453,6 +440,16 @@ header {
   text-transform: lowercase; }
 
 @media (max-width: 1100px) {
+  body {
+    font-size: 1.6rem; }
+  h2 {
+    font-size: 6rem; }
+  h3 {
+    font-size: 4rem; }
+  h5 {
+    font-size: 3rem; }
+  p {
+    margin-bottom: 2rem; }
   .grid {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 50% 50%; }
@@ -463,11 +460,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 16%; }
-  h2 {
-    font-size: 6rem; }
-  h3 {
-    font-size: 4rem; }
+    padding-left: 10%; }
   .flagFigure {
     width: 15vh; }
   .grid__box {
@@ -542,14 +535,19 @@ header {
   .grid__item {
     justify-content: flex-start;
     margin-top: 1rem; }
+  .grid__itemNumber {
+    font-size: 2rem; }
   .grid__itemInner {
+    background: #39a9bd;
     height: 2vh; }
   .grid__itemInner--infoActive,
   .grid__itemInner--flightsActive,
   .grid__itemInner--currencyActive,
   .grid__itemInner--weatherActive,
   .grid__itemInner--packingActive {
-    animation: 1.2s ease-in forwards mediaHeight; }
+    animation: none;
+    height: 89%;
+    background: rgba(57, 169, 189, 0.7); }
     .grid__itemInner--infoActive:hover,
     .grid__itemInner--flightsActive:hover,
     .grid__itemInner--currencyActive:hover,
@@ -559,25 +557,96 @@ header {
   .grid__itemTitle {
     display: none; }
   .gridPicture__container {
-    display: none; } }
+    background: none;
+    padding: 1.5rem; }
+  .gridPicture__image {
+    display: none; }
+  .packingList li:not(:last-child) {
+    margin-bottom: 0; } }
 
-@media (max-width: 800px) {
-  .grid {
-    grid-template-columns: 1fr 1fr; }
+@media (max-width: 850px) {
   header {
     flex-direction: column;
     height: 15rem;
     padding: 0;
     padding-bottom: 2.5rem; }
+  h5 {
+    font-size: 3.5rem; }
   .mainMap {
-    top: 20vh; } }
+    top: 25vh; }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 30% 1fr;
+    overflow: visible; }
+  .countryInformation {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    padding-top: 10%;
+    padding-left: 15%; }
+  .countryInformation h3 {
+    order: -1; }
+  .grid__box--info {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2; }
+  .grid__box--bookFlight {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3; }
+  .grid__box--currency {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3; }
+  .grid__box--packing {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4; }
+  .grid__box--weather {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4; }
+  .grid__box--info::before,
+  .grid__box--info::after,
+  .grid__box--currency::before,
+  .grid__box--weather::before {
+    width: 0; }
+  .grid__box--bookFlight::after,
+  .grid__box--weather::after {
+    height: 0px; }
+  .grid__itemNumber {
+    font-size: 2.5rem; }
+  .gridPicture__container {
+    padding: 2.5rem; }
+  .gridPicture__container--info {
+    padding: 3rem; }
+  .gridPicture__container--currency {
+    padding: 3.5rem; }
+  .gridPicture__container--weather {
+    padding-left: 4rem;
+    padding-right: 2rem; } }
 
 @media (max-width: 550px) {
-  .grid {
-    grid-template-columns: 1fr; }
+  body {
+    font-size: 2rem; }
   .logo {
     margin-top: 1rem; }
   h1 {
-    font-size: 2rem; }
+    font-size: 2rem;
+    padding-left: 1rem; }
+  h5 {
+    font-size: 4rem; }
   form input[type="submit"] {
-    font-size: 1.6rem; } }
+    font-size: 1.6rem; }
+  .mainMap {
+    background: #fff url(../../images/world.jpg) top/cover no-repeat; }
+  .grid {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow: visible; }
+  .countryInformation {
+    align-items: center;
+    padding-top: 5%;
+    padding-left: 0;
+    text-align: center; }
+  .grid__item {
+    margin-bottom: 3rem; }
+  .gridPicture__container {
+    padding: 2.5rem 1rem; }
+  .gridPicture__container--weather {
+    padding: 2.5rem 2rem; } }
