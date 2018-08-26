@@ -155,43 +155,37 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   100% {
     opacity: 0.4; } }
 
-@keyframes gridBgFade {
-  0% {
-    background: #39a9bd; }
-  100% {
-    background: rgba(57, 169, 189, 0.7); } }
-
 @keyframes heightGrow23 {
   0% {
     height: 2vh;
-    background: #39a9bd; }
+    background: #9fa1a3; }
   100% {
     height: 23vh;
-    background: rgba(57, 169, 189, 0.7); } }
+    background: rgba(159, 161, 163, 0.6); } }
 
 @keyframes heightGrow25 {
   0% {
     height: 2vh;
-    background: #39a9bd; }
+    background: #9fa1a3; }
   100% {
     height: 25vh;
-    background: rgba(57, 169, 189, 0.7); } }
+    background: rgba(159, 161, 163, 0.6); } }
 
 @keyframes heightGrow30 {
   0% {
     height: 2vh;
-    background: #39a9bd; }
+    background: #9fa1a3; }
   100% {
     height: 30vh;
-    background: rgba(57, 169, 189, 0.7); } }
+    background: rgba(159, 161, 163, 0.6); } }
 
 @keyframes heightGrow35 {
   0% {
     height: 2vh;
-    background: #39a9bd; }
+    background: #9fa1a3; }
   100% {
     height: 35vh;
-    background: rgba(57, 169, 189, 0.7); } }
+    background: rgba(159, 161, 163, 0.6); } }
 
 @keyframes heightGrowFull {
   0% {
@@ -201,10 +195,8 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 @keyframes mediaHeight {
   0% {
-    height: 2vh;
-    background: #39a9bd; }
+    background: rgba(57, 169, 189, 0); }
   100% {
-    height: calc(100% - 40px);
     background: rgba(57, 169, 189, 0.7); } }
 
 html {
@@ -383,7 +375,7 @@ header {
   padding-bottom: .5rem; }
 
 .grid__itemInner {
-  background: #39a9bd;
+  background: #9fa1a3;
   position: relative;
   height: 2.5vh; }
 
@@ -425,9 +417,8 @@ header {
   flex-direction: column;
   align-items: center;
   padding: 1.5rem;
-  margin: 1.8rem;
   margin-bottom: 0;
-  background: rgba(159, 161, 163, 0.8);
+  background: rgba(159, 161, 163, 0.6);
   height: 100%; }
 
 .gridPicture__image {
@@ -549,7 +540,8 @@ header {
   .grid__itemInner--currencyActive,
   .grid__itemInner--weatherActive,
   .grid__itemInner--packingActive {
-    animation: 1.2s ease-in forwards mediaHeight; }
+    animation: none;
+    height: calc(100% - 40px); }
     .grid__itemInner--infoActive:hover,
     .grid__itemInner--flightsActive:hover,
     .grid__itemInner--currencyActive:hover,

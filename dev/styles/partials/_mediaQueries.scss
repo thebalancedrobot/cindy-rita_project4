@@ -1,7 +1,6 @@
 // first media break point
 @media (max-width: 1100px) {
     .grid {
-        // overflow: auto;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 50% 50%;
     }
@@ -135,8 +134,8 @@
     .grid__itemInner--currencyActive,
     .grid__itemInner--weatherActive,
     .grid__itemInner--packingActive {
-        animation: 1.2s ease-in forwards mediaHeight;
-        // height: calc(100% - 40px);
+        animation: none;
+        height: calc(100% - 40px);
         // background: rgba(57, 169, 189, 0.7);
         &:hover {
             animation: none;

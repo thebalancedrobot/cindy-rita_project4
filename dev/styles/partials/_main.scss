@@ -84,7 +84,7 @@
 }
 
 .grid__itemInner {
-    background: rgba(57, 169, 189, 1);
+    background: $lightgrey;
     position: relative;
     height: 2.5vh;
 }
@@ -137,9 +137,8 @@
     flex-direction: column;
     align-items: center;
     padding: 1.5rem;
-    margin: 1.8rem;
     margin-bottom: 0;
-    background: rgba(159, 161, 163, 0.8);
+    background: rgba(159, 161, 163, 0.6);
     height: 100%;
 }
 

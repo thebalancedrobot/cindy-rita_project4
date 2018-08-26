@@ -125,6 +125,7 @@ app.events = () => {
         $('.grid__itemInner--packing').fadeOut(100).delay(2000).fadeIn(1).addClass('grid__itemInner--packingActive');
         $('.grid__itemInner--weather').fadeOut(100).delay(2000).fadeIn(1).addClass('grid__itemInner--weatherActive');
         $('.grid__content').css('opacity', '1');
+
         app.getRandomCountry();
         app.getCountryInfo();
         app.displayAttraction();
