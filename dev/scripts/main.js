@@ -71,7 +71,7 @@ app.getCountryInfo = () => {
   $(".mainMap")
     .css(
       "background",
-      `#fff url(images/${app.countryString}.jpg) top/cover no-repeat`
+      `#fff url(./images/${app.countryString}.jpg) top/cover no-repeat`
     )
     .addClass("mapBackground");
 
