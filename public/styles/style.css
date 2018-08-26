@@ -546,7 +546,7 @@ header {
   .grid__itemInner--weatherActive,
   .grid__itemInner--packingActive {
     animation: none;
-    height: 87.5%;
+    height: 89%;
     background: rgba(57, 169, 189, 0.7); }
     .grid__itemInner--infoActive:hover,
     .grid__itemInner--flightsActive:hover,
@@ -554,8 +554,6 @@ header {
     .grid__itemInner--weatherActive:hover,
     .grid__itemInner--packingActive:hover {
       animation: none; }
-  .grid__itemInner--infoActive {
-    height: 88%; }
   .grid__itemTitle {
     display: none; }
   .gridPicture__container {
