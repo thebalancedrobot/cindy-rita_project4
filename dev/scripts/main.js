@@ -70,7 +70,7 @@ app.getCountryInfo = () => {
     app.countryUrl = `https://restcountries.eu/rest/v2/name/${app.country}?fullText=true`;
 
 
-    $('.mainMap').css('background', `#fff url(../../images/${app.country}.jpg) top/cover no-repeat`).addClass('mapBackground');
+    $('.mainMap').css('background', `#fff url(../../images/${app.countryString}.jpg) top/cover no-repeat`).addClass('mapBackground');
 
     $.ajax({
         url: app.countryUrl,
