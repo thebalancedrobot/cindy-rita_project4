@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,15 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Reenie+Beanie" rel="stylesheet">
     <title>Project 4</title>
 </head>
+
 <body>
+    <!-- ALL ICONS BY PATH LORD AT https://thenounproject.com/pathlord/ -->
     <!-- HEADER SECTION BEGINS -->
     <header>
         <div class="logo">
             <h1>Adventure Advisor</h1>
             <figure>
-                <img src="images/noun_map and pin_1429502.png" alt="">
+                <img src="images/noun_map and pin_1429502.png" alt="logo icon of map with pinned location">
             </figure>
         </div>
         <form action="" class="pickCountry">
@@ -25,91 +28,39 @@
     <!-- MAIN SECTION BEGINS -->
     <main>
         <div class="mainMap"></div>
-        <section class="countryInformation">
-            <h3 class="capitalCity"></h3>
-            <h2 class="countryName"></h2>
-            <figure class="flagFigure">
-                <img src="" class="flag">
-            </figure>
-        </section>
         <div class="grid">
+            <section class="grid__box countryInformation">
+                <h2 class="countryName"></h2>
+                <h3 class="capitalCity"></h3>
+                <figure class="flagFigure">
+                    <img src="" class="flag">
+                </figure>
+            </section>
             <section class="grid__box grid__box--info">
                 <div class="grid__item">
                     <span class="grid__itemNumber"><span>01</span></span>
-                    <div class="gridPicture__container gridPicture__container--info">
+                    <div class="grid__itemInner grid__itemInner--info">
                         <h4 class="grid__itemTitle">Information</h4>
-                        <img class="gridPicture__image" src="" alt="">
-                        <div class="grid__content grid__content--info">
-                            <span class="language"></span>
-                            <span class="attractions"></span>
+                        <div class="gridPicture__container gridPicture__container--info">
+                            <img class="gridPicture__image gridPicture__image--info" src="images/information.png" alt="icon image of map">
+                            <div class="grid__content grid__content--info">
+                                <span class="language"></span>
+                                <span class="attractions"></span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="grid__box grid__box--packing">
-                <div class="grid__item">
-                    <span class="grid__itemNumber"><span>02</span></span>
-                    <div class="gridPicture__container gridPicture__container--packing">
-                        <h4 class="grid__itemTitle">Packing list</h4>
-                        <img class="gridPicture__image" src="" alt="">
-                        <div class="grid__content grid__content--packing">
-                        <form action="" class="packingList packingList--hot hidden">
-                            <input type="checkbox" name="hotClimate" class="sunscreen" id="sunscreen" value="sunscreen">
-                            <label for="sunscreen">Sunscreen</label>
-
-                            <input type="checkbox" name="hotClimate" class="hat" id="hat" value="hat">
-                            <label for="hat">Hat</label>
-
-                            <input type="checkbox" name="hotClimate" class="sunglasses" id="sunglasses" value="sunglasses">
-                            <label for="sunglasses">Sunglasses</label>
-
-                            <input type="checkbox" name="hotClimate" class="swimsuit" id="swimsuit" value="swimsuit">
-                            <label for="swimsuit">Swimsuit</label>
-
-                            <input type="checkbox" name="hotClimate" class="sandals/flipflops" id="sandals/flipflops" value="sandals/flipflops">
-                            <label for="sandals/flipflops">Sandals/flipflops</label>
-
-                            <input type="checkbox" name="hotClimate" class="beachbag" id="beachbag" value="beachbag">
-                            <label for="beachbag">Beach Bag</label>
-
-                            <input type="checkbox" name="hotClimate" class="chargers" id="chargers" value="chargers">
-                            <label for="chargers">Chargers & Power Adapter</label>
-                        </form>
-                        <form action="" class="packingList packingList--cold hidden">
-                            <input type="checkbox" name="coldClimate" class="jacket" id="jacket" value="jacket">
-                            <label for="jacket">Jacket</label>
-
-                            <input type="checkbox" name="coldClimate" class="hat" id="hat" value="hat">
-                            <label for="hat">Hat</label>
-
-                            <input type="checkbox" name="coldClimate" class="scarf" id="scarf" value="scarf">
-                            <label for="scarf">Scarf</label>
-
-                            <input type="checkbox" name="coldClimate" class="gloves/mittens" id="gloves/mittens" value="gloves/mittens">
-                            <label for="gloves/mittens">Gloves/mittens</label>
-
-                            <input type="checkbox" name="coldClimate" class="sweaters" id="sweaters" value="sweaters">
-                            <label for="sweaters">Sweaters</label>
-
-                            <input type="checkbox" name="coldClimate" class="boots" id="boots" value="boots">
-                            <label for="boots">Boots</label>
-
-                            <input type="checkbox" name="coldClimate" class="chargers" id="chargers" value="chargers">
-                            <label for="chargers">Chargers & Power Adapter</label>
-                        </form>
                     </div>
                 </div>
             </section>
 
             <section class="grid__box grid__box--bookFlight">
                 <div class="grid__item">
-                    <span class="grid__itemNumber"><span>03</span></span>
-                    <div class="gridPicture__container gridPicture__container--extraInfo">
+                    <span class="grid__itemNumber"><span>02</span></span>
+                    <div class="grid__itemInner grid__itemInner--flights">
                         <h4 class="grid__itemTitle">Find flights</h4>
-                        <img class="gridPicture__image" src="" alt="">
-                        <div class="grid__content grid__content--flights">
-                        
+                        <div class="gridPicture__container gridPicture__container--flights">
+                            <img class="gridPicture__image" src="images/passport.png" alt="icon image of passport of world symbol">
+                            <div class="grid__content grid__content--flights">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -117,11 +68,95 @@
 
             <section class="grid__box grid__box--currency">
                 <div class="grid__item">
-                    <span class="grid__itemNumber"><span>04</span></span>
-                    <div class="gridPicture__container gridPicture__container--currency">
+                    <span class="grid__itemNumber"><span>03</span></span>
+                    <div class="grid__itemInner grid__itemInner--currency">
                         <h4 class="grid__itemTitle">Currency conversion</h4>
-                        <img class="gridPicture__image" src="" alt="">
-                        <div class="grid__content grid__content--currency">
+                        <div class="gridPicture__container gridPicture__container--currency">
+                            <img class="gridPicture__image gridPicture__image--currency" src="images/currency.png" alt="icon image of money coming out of atm">
+                            <div class="grid__content grid__content--currency">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid__box grid__box--packing">
+                <div class="grid__item">
+                    <span class="grid__itemNumber"><span>04</span> </span>
+                    <div class="grid__itemInner grid__itemInner--packing">
+                        <h4 class="grid__itemTitle">Packing list</h4>
+                        <div class="gridPicture__container gridPicture__container--packing">
+                            <img class="gridPicture__image gridPicture__image--packing" src="images/suitcase.png" alt="icon image of a suitcase">
+                            <div class="grid__content grid__content--packing">
+                                <form action="" class="packingList">
+                                    <h5>Just to get you started</h5>
+                                    <ul class="packingList--hot hidden">
+                                        <li>
+                                            <input type="checkbox" name="hotClimate" class="sunscreen" id="sunscreen" value="sunscreen">
+                                            <label for="sunscreen">Sunscreen</label>
+                                        </li>
+
+                                        <li>
+                                            <input type="checkbox" name="hotClimate" class="hat" id="hat" value="hat">
+                                            <label for="hat">Hat</label>
+                                        </li>
+
+                                        <li>
+                                            <input type="checkbox" name="hotClimate" class="sunglasses" id="sunglasses" value="sunglasses">
+                                            <label for="sunglasses">Sunglasses</label>
+                                        </li>
+
+                                        <li>
+                                            <input type="checkbox" name="hotClimate" class="swimsuit" id="swimsuit" value="swimsuit">
+                                            <label for="swimsuit">Swimsuit</label>
+                                        </li>
+
+                                        <li>
+                                            <input type="checkbox" name="hotClimate" class="sandals/flipflops" id="sandals/flipflops" value="sandals/flipflops">
+                                            <label for="sandals/flipflops">Sandals</label>
+                                        </li>
+
+                                        <li>
+                                            <input type="checkbox" name="hotClimate" class="beachbag" id="beachbag" value="beachbag">
+                                            <label for="beachbag">Beach Bag</label>
+                                        </li>
+                                    </ul>
+                                </form>
+
+                                <form action="" class="packingList">
+                                    <ul class="packingList--cold hidden">
+                                        <li>
+                                            <input type="checkbox" name="coldClimate" class="jacket" id="jacket" value="jacket">
+                                            <label for="jacket">Jacket</label>
+                                        </li>
+
+                                        <li>
+                                            <input type="checkbox" name="coldClimate" class="hat" id="hat" value="hat">
+                                            <label for="hat">Hat</label>
+                                        </li>
+
+                                        <li>
+                                            <input type="checkbox" name="coldClimate" class="scarf" id="scarf" value="scarf">
+                                            <label for="scarf">Scarf</label>
+                                        </li>
+
+                                        <li>
+                                            <input type="checkbox" name="coldClimate" class="gloves/mittens" id="gloves/mittens" value="gloves/mittens">
+                                            <label for="gloves/mittens">Mittens</label>
+                                        </li>
+
+                                        <li>
+                                            <input type="checkbox" name="coldClimate" class="sweaters" id="sweaters" value="sweaters">
+                                            <label for="sweaters">Sweaters</label>
+                                        </li>
+
+                                        <li>
+                                            <input type="checkbox" name="coldClimate" class="boots" id="boots" value="boots">
+                                            <label for="boots">Boots</label>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -130,10 +165,12 @@
             <section class="grid__box grid__box--weather">
                 <div class="grid__item">
                     <span class="grid__itemNumber"><span>05</span></span>
-                    <div class="gridPicture__container gridPicture__container--weather">
-                        <img class="gridPicture__image" src="" alt="">
-                        <div class="grid__content grid__content--weather">
-                            
+                    <div class="grid__itemInner grid__itemInner--weather">
+                        <h4 class="grid__itemTitle grid__itemTitle--weather">Weather</h4>
+                        <div class="gridPicture__container gridPicture__container--weather">
+                            <img class="gridPicture__image" src="images/weather.png" alt="icon image of compass">
+                            <div class="grid__content grid__content--weather">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -141,14 +178,10 @@
         </div>
     </main>
     <!-- MAIN SECTION ENDS -->
-
-    <!-- FOOTER SECTION BEGINS -->
-    <footer>
-
-    </footer>
-    <!-- FOOTER SECTION ENDS -->
-<script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
-<script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
-<script src="public/scripts/main.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='
+        crossorigin='anonymous'></script>
+    <script src="public/scripts/main.js"></script>
 </body>
+
 </html>

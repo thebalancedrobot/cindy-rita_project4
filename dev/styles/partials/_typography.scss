@@ -5,11 +5,12 @@ html {
 body {
     font-family: $main-font;
     font-size: 1.8rem;
-    letter-spacing: .5px;
+    letter-spacing: .05rem;
+    line-height: 3rem;
     color: $darkgrey;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5 {
     margin: 0;
 }
 
@@ -17,12 +18,12 @@ h1 {
     font-family: $main-font;
     font-size: 3rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: .2rem;
 }
 
 h2, h3 {
     font-family: $heading-font;
-    // position: absolute;
+    line-height: 4rem;
 }
 
 .displayAnimation {
@@ -32,20 +33,32 @@ h2, h3 {
 h2 {
     font-size: 8rem;
     line-height: 5.5rem;
-    letter-spacing: 7px;
+    letter-spacing: .7rem;
 }
 
 h3 {
     font-size: 5rem;
-    // top: 40%;
-    // left: 21.5%;
     text-transform: lowercase;
+    margin-left: .5rem;
 }
 
 h4 {
     font-weight: normal;
+    font-size: 2rem;
 }
 
-em {
-    font-weight: bold;
+h5 {
+    font-family: $heading-font;
+    font-size: 3.5rem;
+    text-transform: lowercase;
+    margin-bottom: .5rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 5rem;
+}
+
+.grid__itemTitle--weather {
+    display: none;
 }
