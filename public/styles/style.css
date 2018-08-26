@@ -541,7 +541,8 @@ header {
   .grid__itemInner--weatherActive,
   .grid__itemInner--packingActive {
     animation: none;
-    height: calc(100% - 40px); }
+    height: calc(100% - 40px);
+    background: rgba(57, 169, 189, 0.7); }
     .grid__itemInner--infoActive:hover,
     .grid__itemInner--flightsActive:hover,
     .grid__itemInner--currencyActive:hover,

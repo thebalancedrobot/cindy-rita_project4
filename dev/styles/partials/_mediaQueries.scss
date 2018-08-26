@@ -136,7 +136,7 @@
     .grid__itemInner--packingActive {
         animation: none;
         height: calc(100% - 40px);
-        // background: rgba(57, 169, 189, 0.7);
+        background: rgba(57, 169, 189, 0.7);
         &:hover {
             animation: none;
         }
