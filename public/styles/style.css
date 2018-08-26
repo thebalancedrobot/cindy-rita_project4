@@ -161,12 +161,12 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   100% {
     background: rgba(57, 169, 189, 0.7); } }
 
-@keyframes heightGrow20 {
+@keyframes heightGrow23 {
   0% {
     height: 2vh;
     background: #39a9bd; }
   100% {
-    height: 20vh;
+    height: 23vh;
     background: rgba(57, 169, 189, 0.7); } }
 
 @keyframes heightGrow25 {
@@ -198,6 +198,14 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
     height: 35vh; }
   100% {
     height: 85vh; } }
+
+@keyframes mediaHeight {
+  0% {
+    height: 2vh;
+    background: #39a9bd; }
+  100% {
+    height: calc(100% - 40px);
+    background: rgba(57, 169, 189, 0.7); } }
 
 html {
   height: 100%; }
@@ -384,20 +392,20 @@ header {
   .grid__itemInner--infoActive:hover {
     animation: .5s ease-in forwards 1 heightGrowFull; }
 
-.grid__itemInner--flightsActive,
+.grid__itemInner--flightsActive {
+  animation: 1.2s ease-in forwards 1 heightGrow23; }
+  .grid__itemInner--flightsActive:hover {
+    animation: .5s ease-in forwards 1 heightGrowFull; }
+
+.grid__itemInner--currencyActive,
 .grid__itemInner--weatherActive {
-  animation: 1.2s ease-in forwards 1 heightGrow20; }
-  .grid__itemInner--flightsActive:hover,
+  animation: 1.2s ease-in forwards 1 heightGrow25; }
+  .grid__itemInner--currencyActive:hover,
   .grid__itemInner--weatherActive:hover {
     animation: .5s ease-in forwards 1 heightGrowFull; }
 
-.grid__itemInner--currencyActive {
-  animation: 1.2s ease-in forwards 1 heightGrow30; }
-  .grid__itemInner--currencyActive:hover {
-    animation: .5s ease-in forwards 1 heightGrowFull; }
-
 .grid__itemInner--packingActive {
-  animation: 1.2s ease-in forwards 1 heightGrow25; }
+  animation: 1.2s ease-in forwards 1 heightGrow30; }
   .grid__itemInner--packingActive:hover {
     animation: .5s ease-in forwards 1 heightGrowFull; }
 
@@ -423,10 +431,13 @@ header {
   height: 100%; }
 
 .gridPicture__image {
-  max-width: 10rem;
+  max-width: 13rem;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 8rem;
   opacity: 0; }
+
+.gridPicture__image--info {
+  max-width: 15rem; }
 
 .gridPicture__image--active {
   animation: 2s ease-in forwards 1 fadeIn; }
@@ -443,34 +454,111 @@ header {
 
 @media (max-width: 1100px) {
   .grid {
-    grid-template-columns: 30% 30% 30%;
-    grid-template-rows: 1fr 1fr; }
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50% 50%; }
   .countryInformation {
     position: static;
     grid-column: 1 / 2;
-    grid-row: 1 / 2; }
-  .grid__box--info {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2; }
-  .grid__box--bookFlight {
-    grid-column: 3 / 4;
-    grid-row: 1 / 2; }
-  .grid__box--currency {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3; }
-  .grid__box--packing {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3; }
-  .grid__box--weather {
-    grid-column: 3 / 4;
-    grid-row: 2 / 3; }
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 16%; }
   h2 {
     font-size: 6rem; }
   h3 {
     font-size: 4rem; }
   .flagFigure {
     width: 15vh; }
+  .grid__box {
+    border: none; }
+  .grid__box--info {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    position: relative; }
+  .grid__box--info::before {
+    content: "";
+    height: 150vh;
+    width: 1px;
+    background: #39a9bd;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  .grid__box--info::after {
+    content: "";
+    height: 150vh;
+    width: 1px;
+    background: #39a9bd;
+    position: absolute;
+    top: 0;
+    right: 0; }
+  .grid__box--bookFlight {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    position: relative; }
+  .grid__box--bookFlight::after {
+    content: "";
+    height: 1px;
+    width: 150vw;
+    background: #39a9bd;
+    position: absolute;
+    bottom: 0;
+    left: -100vw; }
+  .grid__box--currency {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    position: relative; }
+  .grid__box--currency::before {
+    content: "";
+    height: 150vh;
+    width: 1px;
+    background: #39a9bd;
+    position: absolute;
+    top: -100vh;
+    right: 0; }
+  .grid__box--packing {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3; }
+  .grid__box--weather {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    position: relative; }
+  .grid__box--weather::before {
+    content: "";
+    height: 150vh;
+    width: 1px;
+    background: #39a9bd;
+    position: absolute;
+    top: -100vh;
+    left: 0; }
+  .grid__box--weather::after {
+    content: "";
+    height: 1px;
+    width: 150vw;
+    background: #39a9bd;
+    position: absolute;
+    top: 0;
+    left: -100vw; }
+  .grid__item {
+    justify-content: flex-start;
+    margin-top: 1rem; }
+  .grid__itemInner {
+    height: 2vh; }
+  .grid__itemInner--infoActive,
+  .grid__itemInner--flightsActive,
+  .grid__itemInner--currencyActive,
+  .grid__itemInner--weatherActive,
+  .grid__itemInner--packingActive {
+    animation: 1.2s ease-in forwards mediaHeight; }
+    .grid__itemInner--infoActive:hover,
+    .grid__itemInner--flightsActive:hover,
+    .grid__itemInner--currencyActive:hover,
+    .grid__itemInner--weatherActive:hover,
+    .grid__itemInner--packingActive:hover {
+      animation: none; }
   .grid__itemTitle {
+    display: none; }
+  .gridPicture__container {
     display: none; } }
 
 @media (max-width: 800px) {

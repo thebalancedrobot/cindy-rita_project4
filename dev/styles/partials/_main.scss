@@ -96,23 +96,24 @@
     }
 }
 
-.grid__itemInner--flightsActive,
-.grid__itemInner--weatherActive {
-    animation: 1.2s ease-in forwards 1 heightGrow20;
+.grid__itemInner--flightsActive
+ {
+    animation: 1.2s ease-in forwards 1 heightGrow23;
     &:hover {
         animation: .5s ease-in forwards 1 heightGrowFull;
     }
 }
 
-.grid__itemInner--currencyActive {
-    animation: 1.2s ease-in forwards 1 heightGrow30;
+.grid__itemInner--currencyActive,
+.grid__itemInner--weatherActive, {
+    animation: 1.2s ease-in forwards 1 heightGrow25;
     &:hover {
         animation: .5s ease-in forwards 1 heightGrowFull;
     }
 }
 
 .grid__itemInner--packingActive {
-    animation: 1.2s ease-in forwards 1 heightGrow25;
+    animation: 1.2s ease-in forwards 1 heightGrow30;
     &:hover {
         animation: .5s ease-in forwards 1 heightGrowFull;
     }
@@ -143,10 +144,14 @@
 }
 
 .gridPicture__image {
-    max-width: 10rem;
+    max-width: 13rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 8rem;
     opacity: 0;
+}
+
+.gridPicture__image--info {
+    max-width: 15rem;
 }
 
 .gridPicture__image--active {
