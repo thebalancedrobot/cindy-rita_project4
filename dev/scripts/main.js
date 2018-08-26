@@ -118,11 +118,13 @@ app.events = () => {
         $('.pickCountry').trigger("reset");
         e.preventDefault();
         $('.grid__itemTitle').addClass('grid__itemTitle--active');
-        $('.gridPicture__container--info').addClass('gridPicture__container--infoActive');
-        $('.gridPicture__container--packing').addClass('gridPicture__container--packingActive');
-        $('.gridPicture__container--extraInfo').addClass('gridPicture__container--extraInfoActive');
-        $('.gridPicture__container--currency').addClass('gridPicture__container--currencyActive');
-        $('.gridPicture__container--weather').addClass('gridPicture__container--weatherActive');
+        $('.gridPicture__image').addClass('gridPicture__image--active');
+        $('.grid__itemInner--info').fadeOut(100).delay(2000).fadeIn(1).addClass('grid__itemInner--infoActive');
+        $('.grid__itemInner--flights').fadeOut(100).delay(2000).fadeIn(1).addClass('grid__itemInner--flightsActive');
+        $('.grid__itemInner--currency').fadeOut(100).delay(2000).fadeIn(1).addClass('grid__itemInner--currencyActive');
+        $('.grid__itemInner--packing').fadeOut(100).delay(2000).fadeIn(1).addClass('grid__itemInner--packingActive');
+        $('.grid__itemInner--weather').fadeOut(100).delay(2000).fadeIn(1).addClass('grid__itemInner--weatherActive');
+        $('.grid__content').css('opacity', '1');
         app.getRandomCountry();
         app.getCountryInfo();
         app.displayAttraction();
@@ -136,7 +138,7 @@ app.displayCountry = (country) => {
     $('.capitalCity').html(`${country.capital}`).css('opacity', '0').addClass('displayAnimation');
     $('.flagFigure img').attr("src", country.flag).css('opacity', '0').addClass('displayAnimation');
     $('.flagFigure').css({ 'border': '1px solid #414344', 'opacity': '0' }).addClass('displayAnimation');
-    $('.grid__content--currency').html(`<em>time to exchange</em> <br>your canadian dollars for ${currencyText}`)
+    $('.grid__content--currency').html(`<h5>go exchange:</h5>your canadian dollars for ${currencyText}`)
     $('.grid__content--flights').html(`<div data-skyscanner-widget="LocationWidget" data-locale="en-GB" data-params="colour:#f4d35e;location:${country.capital};locationId:EDI"></div>
     <script src="https://widgets.skyscanner.net/widget-server/js/loader.js"></script>`);
     console.log(country.flag);
@@ -146,7 +148,7 @@ app.displayCountry = (country) => {
         const language = country.languages[key].name;
         languages.push(language);
         const languagesString = languages.join(', ').toLowerCase();
-        $('.grid__content--info .language').html(`<p><em>learn some words in</em><br> ${languagesString}</p>`)
+        $('.grid__content--info .language').html(`<p><h5>brush up on your:</h5>${languagesString}</p></br>`)
     }
 
     if (app.cityClimate === "hot") {
@@ -166,13 +168,13 @@ app.displayAttraction = (attraction) => {
         attractions.push(attractionName);
     }
     const attractionString = attractions.join('<br>').toLowerCase();
-    $('.grid__content--info .attractions').html(`<p><em>top three attractions</em><br> ${attractionString}</p>`)
+    $('.grid__content--info .attractions').html(`<p><h5>top three attractions:</h5>${attractionString}</p>`)
 }
 
 
 app.displayWeather = (weather) => {
     const weatherString = weather.daily.summary.toLowerCase();
-    $('.grid__content--weather').html(`<em>weather this week</em><br> ${weatherString}`)
+    $('.grid__content--weather').html(`<h5>weather this week:</h5>${weatherString}`)
 }
 
 app.init = function () {

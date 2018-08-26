@@ -1,17 +1,47 @@
 // first media break point
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
     .grid {
+        // overflow: auto;
         grid-template-columns: 30% 30% 30%;
         grid-template-rows: 1fr 1fr;
     }
 
     .countryInformation {
-        left: 70%;
-        top: 60%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        position: static;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+
+        // left: 70%;
+        // top: 60%;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        // text-align: center;
+    }
+
+    .grid__box--info {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .grid__box--bookFlight {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+    }
+
+    .grid__box--currency {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    .grid__box--packing {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    .grid__box--weather {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
     }
 
     h2 {
