@@ -370,7 +370,7 @@ header {
   padding-bottom: .5rem; }
 
 .grid__itemInner {
-  background: #9fa1a3;
+  background: #39a9bd;
   position: relative;
   height: 2.5vh; }
 
@@ -413,7 +413,7 @@ header {
   align-items: center;
   padding: 3.5rem;
   margin-bottom: 0;
-  background: rgba(159, 161, 163, 0.6);
+  background: rgba(57, 169, 189, 0.7);
   height: 100%; }
 
 .gridPicture__image {
@@ -441,7 +441,8 @@ header {
 
 @media (max-width: 1100px) {
   body {
-    font-size: 1.6rem; }
+    font-size: 1.6rem;
+    line-height: 2.5rem; }
   h2 {
     font-size: 6rem; }
   h3 {
@@ -538,7 +539,6 @@ header {
   .grid__itemNumber {
     font-size: 2rem; }
   .grid__itemInner {
-    background: #39a9bd;
     height: 2vh; }
   .grid__itemInner--infoActive,
   .grid__itemInner--flightsActive,
@@ -560,13 +560,21 @@ header {
     display: none; }
   .gridPicture__container {
     background: none;
-    padding: 1.5rem; }
+    padding: 2.5rem; }
+  .gridPicture__container--info {
+    padding-top: 1rem; }
+  .gridPicture__container--weather {
+    padding-left: 4rem;
+    padding-right: 2rem; }
   .gridPicture__image {
     display: none; }
   .packingList li:not(:last-child) {
     margin-bottom: 0; } }
 
 @media (max-width: 850px) {
+  body {
+    font-size: 1.8rem;
+    line-height: 3rem; }
   header {
     flex-direction: column;
     height: 15rem;
@@ -634,8 +642,6 @@ header {
     font-size: 4rem; }
   form input[type="submit"] {
     font-size: 1.6rem; }
-  .mainMap {
-    background: #fff url(../../images/world.jpg) top/cover no-repeat; }
   .grid {
     display: flex;
     flex-direction: column;
