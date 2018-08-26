@@ -2,6 +2,7 @@
 @media (max-width: 1100px) {
     body {
         font-size: 1.6rem;
+        line-height: 2.5rem;
     }
 
     h2 {
@@ -142,7 +143,6 @@
     }
 
     .grid__itemInner {
-        background: $blue;
         height: 2vh;
     }
 
@@ -165,7 +165,16 @@
 
     .gridPicture__container {
         background: none;
-        padding: 1.5rem;
+        padding: 2.5rem;
+    }
+
+    .gridPicture__container--info {
+        padding-top: 1rem;
+    }
+
+    .gridPicture__container--weather {
+        padding-left: 4rem;
+        padding-right: 2rem;
     }
 
     .gridPicture__image {
@@ -179,6 +188,11 @@
 
 // second media breakpoint
 @media (max-width: 850px) {
+    body {
+        font-size: 1.8rem;
+        line-height: 3rem;
+    }
+
     header {
         flex-direction: column;
         height: 15rem;
@@ -292,10 +306,6 @@
     
     form input[type="submit"] {
         font-size: 1.6rem;
-    }
-
-    .mainMap {
-        background: #fff url(../../images/world.jpg) top/cover no-repeat;
     }
 
     .grid {
