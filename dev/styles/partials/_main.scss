@@ -90,7 +90,7 @@
 }
 
 .grid__itemInner--infoActive {
-    animation: 1.2s ease-in forwards 1 heightGrow35;
+    animation: 1.2s ease-in forwards 1 heightGrow30;
     &:hover {
         animation: .5s ease-in forwards 1 heightGrowFull;
     }
@@ -113,7 +113,7 @@
 }
 
 .grid__itemInner--packingActive {
-    animation: 1.2s ease-in forwards 1 heightGrow30;
+    animation: 1.2s ease-in forwards 1 heightGrow35;
     &:hover {
         animation: .5s ease-in forwards 1 heightGrowFull;
     }
@@ -136,7 +136,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem;
+    padding: 3.5rem;
     margin-bottom: 0;
     background: rgba(159, 161, 163, 0.6);
     height: 100%;
@@ -145,12 +145,13 @@
 .gridPicture__image {
     max-width: 13rem;
     text-align: center;
-    margin-bottom: 8rem;
+    margin-bottom: 5rem;
     opacity: 0;
 }
 
 .gridPicture__image--info {
-    max-width: 15rem;
+    max-width: 16rem;
+    margin-bottom: 0;
 }
 
 .gridPicture__image--active {
